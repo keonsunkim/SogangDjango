@@ -35,9 +35,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Account',
-    'Friend',
-    'Post',
-    'Tag',
 ]
 
 MIDDLEWARE = [
@@ -50,7 +47,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'blogworld.urls'
+ROOT_URLCONF = 'sogangdjango.urls'
 
 TEMPLATES = [
     {
