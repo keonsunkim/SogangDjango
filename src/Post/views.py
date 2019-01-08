@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 # Create your views here.
- def post_list(request):
+ def all_post_list(request):
  	
