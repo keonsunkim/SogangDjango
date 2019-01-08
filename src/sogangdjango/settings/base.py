@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'Account.User'
+# AUTH_USER_MODEL = 'Account.User'
 
 # Application definition
 
@@ -34,8 +34,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Account',
-    'Following',
+    # 'Account',
+    # 'Following',
 ]
 
 MIDDLEWARE = [
