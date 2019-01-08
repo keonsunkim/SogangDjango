@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
 
 ALLOWED_HOSTS = []
 
-# AUTH_USER_MODEL = 'Account.User'
+AUTH_USER_MODEL = 'Account.User'
 
 # Application definition
 
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Account',
+    'Following',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +66,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'blogworld.wsgi.application'
+WSGI_APPLICATION = 'sogangdjango.wsgi.application'
 
 
 # Password validation

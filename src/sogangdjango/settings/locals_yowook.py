@@ -16,8 +16,6 @@ def get_secret(setting, secrets):
         raise ImproperlyConfigured(error_msg)
 
 
-
-
 SECRET_KEY = get_secret("SECRET_KEY", secrets=secrets)
 
 
@@ -29,5 +27,5 @@ DATABASES = {
        'PASSWORD': get_secret("DB_PASSWORD", secrets),
        'HOST': 'localhost',
        'PORT': '5432',
-   }
+    }
 }

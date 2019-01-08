@@ -53,10 +53,6 @@ class User(AbstractBaseUser):
         _('unique name for your url link'),
         max_length=30, db_index=True, unique=True, blank=False, null=False)
 
-    phone_number = models.CharField(
-        _('phone number'), max_length=12)
-    # here for test purposes but not going to use this seriously!
-
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['slug_name_for_url', ]
 
