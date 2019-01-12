@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from Following.views import *
+
 urlpatterns = [
-    url(r'^follow/', include('Following.urls')),
+    #url(r'^home/',example_view),
     url(r'^admin/', admin.site.urls),
-]
+    #url(r'^posts/',include('Post.urls', namespace='posts')),
+] #+ static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
