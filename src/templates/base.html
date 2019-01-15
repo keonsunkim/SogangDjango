@@ -1,0 +1,133 @@
+<!doctype html>
+{% load static %}
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    {% block stylesheets %}
+    <style type="text/css">
+        #logo-container {
+          color: white;
+          border-style: solid;
+          border-color: black;
+          border: 0.1px;
+          list-style-type: none;
+        }
+
+        #logo-container ul{
+          padding-left: 10px;
+        }
+
+        #logo-container li{
+          list-style-type: none;
+        }
+
+        #logo {
+          padding-top: 15px;    
+          padding-bottom: 20px;
+          margin-bottom: 0px;
+        }
+
+        .form-inline input{
+          margin-right:5px;
+        }
+
+        #content-area {
+          margin-top: 15px;
+          padding: 15px;
+        }
+
+    </style>
+    {% endblock stylesheets %}
+    <title>Our Portfolio Page
+      {% block subtitle %}
+      {% endblock %}
+    </title>
+  </head>
+  <body>
+    {% block logo_container %}
+    <div class="container bg-success" id="logo-container">
+      <ul class="logo-container-list">
+        <li><h1 id="logo">Sogangdjango Portfolio</h1></li>
+        </div>
+      </ul>
+    </div>
+    {% endblock logo_container %}
+    {% block search-login %}
+    <div class="container" id="search-login">
+      <div class="row">
+        <div class="col-3" id="search-bar">
+        <div class="input-group input-group-sm mb-3">
+         <input type="text" class="form-control" 
+         placeholder="Search..." id="search">
+         <div class="input-group-append">
+         <button class="btn btn-outline-secondary" type="button" 
+         id="search-button">Search</button>
+         </div>
+        </div>
+      </div>
+        <div class="col" id="login-input">
+          <div class="d-flex justify-content-end">
+            <form class="form-inline" method="post">
+              <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control" id="userId" 
+                placeholder="User ID">
+                <input type="text" class="form-control" id="userPassword" 
+                placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-outline-secondary btn-sm mb-3" 
+              id="login-button">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+    {% block horizontal_navbar %}
+    <div class="container">
+      <div class="navbar navbar-expand-lg bg-light" id="horizontal-navbar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">My Page</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Posts</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
+            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Follows
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">My Followers</a>
+              <a class="dropdown-item" href="#">My Followings</a> 
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+        </ul>      
+      </div>
+    </div>
+    {% endblock %}
+    <div class="container">
+    {% block content %}
+    {% endblock %}
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>

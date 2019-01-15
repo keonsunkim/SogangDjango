@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from Following.views import *
+from homepage.views import homepage_view
 urlpatterns = [
     url(r'^follow/', include('Following.urls')),
+    url(r'^home/', homepage_view),
     url(r'^admin/', admin.site.urls),
 ]

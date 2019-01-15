@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block subtitle %}- Followings{% endblock %}
+{% block content %}
+<div class="container bg-light" id="content-area">
+<h1>User {{following_sample.follower.email}} is following: </h1>
+<div class="row">
+{% for following in following_list %}
+    <div class="col-sm-4" id="following-card">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><p>{{following.followed.email}}</p></h5>
+                <p class="card-text"><small class="text-muted">
+                Following Since: {{following.following_since.date}}</small></p>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}
