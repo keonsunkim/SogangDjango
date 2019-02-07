@@ -23,7 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'Account.User'
 
 # Application definition
 
@@ -35,7 +34,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Account',
+    'Auth',
     'Following',
+    'Profile',
+    'PhoneEmail',
+    'Dummy',
 ]
 
 MIDDLEWARE = [
@@ -100,3 +103,14 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+# Extra
+USER_ACTIVATION_EMAIL_VALIDITY_TIME = ('days', 30)
+PASSWORD_RESET_EMAIL_VALIDITY_TIME = ('days', 7)
+PASSWORD_RESET_PHONE_VALIDITY_TIME = ('minutes', 3)
+
+
+# Auth
+AUTH_USER_MODEL = 'Account.User'
+LOGIN_URL = "auth/login"

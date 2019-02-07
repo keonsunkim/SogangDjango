@@ -15,8 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from Following.views import *
+from django.conf.urls.static import static
+from django.conf import settings
+
 urlpatterns = [
+    url(r'^auth/', include('Auth.urls', namespace='auth')),
+    url(r'^profile/', include('Profile.urls', namespace='profile')),
     url(r'^follow/', include('Following.urls')),
+    url(r'^dummy/', include('Dummy.urls', namespace='dummy')),
     url(r'^admin/', admin.site.urls),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

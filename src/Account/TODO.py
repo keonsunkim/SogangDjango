@@ -21,4 +21,7 @@ This in fact creates a race_condition. And can create a
 
 5. Maybe change our Hashing Algorithms?
 
+6. Transaction Atomic on User Slug creation. Retry if
+Integreity Error
+
 """

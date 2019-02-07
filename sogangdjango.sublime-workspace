@@ -1,0 +1,998 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"auth",
+				"auth_phone_verification_form"
+			],
+			[
+				"user",
+				"user_phone"
+			],
+			[
+				"last",
+				"latest_of_user"
+			],
+			[
+				"phone",
+				"phone_verification"
+			],
+			[
+				"au",
+				"auth_phone_verification_form"
+			],
+			[
+				"Form",
+				"FormPhoneField"
+			],
+			[
+				"dummy",
+				"dummy_home_view"
+			],
+			[
+				"ver",
+				"verification_code"
+			],
+			[
+				"latest",
+				"latest_of_user"
+			],
+			[
+				"Password",
+				"PasswordResetData"
+			],
+			[
+				"time",
+				"timedelta"
+			],
+			[
+				"E",
+				"EMAIL_RESET_VALIDITY_TIME"
+			],
+			[
+				"password",
+				"password_reset_phone"
+			],
+			[
+				"Image",
+				"ImageAutoResizeField"
+			],
+			[
+				"P",
+				"PostCreateForm"
+			],
+			[
+				"Ht",
+				"HttpResponse"
+			],
+			[
+				"detail",
+				"post_detail"
+			],
+			[
+				"Http",
+				"HttpResponse"
+			],
+			[
+				"padd",
+				"padding-top\tproperty"
+			],
+			[
+				"background-",
+				"background-color\tproperty"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"home",
+				"homepage_view"
+			],
+			[
+				"ho",
+				"homepage_view"
+			],
+			[
+				"filter",
+				"filter_tag"
+			],
+			[
+				"rep",
+				"representation_name"
+			],
+			[
+				"keyword",
+				"keyword_to_give"
+			],
+			[
+				"k",
+				"keywords"
+			],
+			[
+				"de",
+				"default_mixing_keywords"
+			],
+			[
+				"fir",
+				"first_name"
+			],
+			[
+				"BA",
+				"BASE_DIR"
+			],
+			[
+				"empl",
+				"empolyment_status"
+			],
+			[
+				"car",
+				"car"
+			],
+			[
+				"steer",
+				"steer_wheel"
+			],
+			[
+				"pri",
+				"primary_key"
+			],
+			[
+				"pr",
+				"primary_key"
+			],
+			[
+				"tag_model",
+				"tag_model_class"
+			],
+			[
+				"JSO",
+				"JSONTagFieldDescriptor"
+			],
+			[
+				"new",
+				"new_descriptor"
+			],
+			[
+				"JS",
+				"JSONFIELD"
+			],
+			[
+				"option",
+				"option_from_constants"
+			],
+			[
+				"more",
+				"more_than_one_model"
+			],
+			[
+				"_d",
+				"_modules"
+			],
+			[
+				"T",
+				"TREE"
+			],
+			[
+				"D",
+				"DOUBLE_QUOTE"
+			],
+			[
+				"DOUBLE",
+				"DOUBLE_HASH"
+			],
+			[
+				"CLA",
+				"classification"
+			],
+			[
+				"case",
+				"case_sensitive"
+			],
+			[
+				"for",
+				"force_lowercase"
+			],
+			[
+				"class",
+				"classification"
+			],
+			[
+				"Op",
+				"OPTION_DEFAULTS"
+			],
+			[
+				"fil",
+				"filtertag_supertag_coexists"
+			],
+			[
+				"OP",
+				"OPTION_DEFAULTS"
+			],
+			[
+				"O",
+				"OPTION_DEFAULTS"
+			],
+			[
+				"tag_",
+				"tag_max_count"
+			],
+			[
+				"supertag",
+				"supertag_list_to_add"
+			],
+			[
+				"super",
+				"supertag_list_to_delete"
+			],
+			[
+				"tag_list_t",
+				"tag_list_to_add"
+			],
+			[
+				"None",
+				"None"
+			],
+			[
+				"tag_list_to",
+				"tag_list_to_delete"
+			],
+			[
+				"tag_list",
+				"tag_list_to_add"
+			],
+			[
+				"save",
+				"saved_instance"
+			],
+			[
+				"json",
+				"json_to_many_to_many"
+			],
+			[
+				"value",
+				"value"
+			],
+			[
+				"Gen",
+				"GeneralPost"
+			],
+			[
+				"list",
+				"lists"
+			],
+			[
+				"field",
+				"field_name"
+			],
+			[
+				"id",
+				"id"
+			],
+			[
+				"create",
+				"create_tag_list"
+			],
+			[
+				"pk",
+				"pk_tag_list_to_delete"
+			],
+			[
+				"pk_tag_list_to",
+				"pk_tag_list_to_add"
+			],
+			[
+				"pk_tag",
+				"pk_tag_list_create"
+			],
+			[
+				"dlete",
+				"delete_tag_list"
+			],
+			[
+				"is",
+				"is_supertag"
+			],
+			[
+				"tag",
+				"Tag"
+			],
+			[
+				"tags_i",
+				"tags_in_instance"
+			],
+			[
+				"set",
+				"set"
+			],
+			[
+				"tags_in",
+				"tags_in_field"
+			],
+			[
+				"tag_pk",
+				"tag_pk_list_to_add"
+			],
+			[
+				"tag_pk_l",
+				"tag_pk_list_to_delete"
+			],
+			[
+				"tags",
+				"tags_tracker_filters_for_delete"
+			],
+			[
+				"instance",
+				"instance_tag_json_exists"
+			],
+			[
+				"IS",
+				"IsAuthenticatedOrReadOnly는"
+			],
+			[
+				"M",
+				"ModelSerializer"
+			],
+			[
+				"urls",
+				"URLs"
+			],
+			[
+				"User",
+				"UserFeedListSerializer"
+			],
+			[
+				"conte",
+				"content_type"
+			],
+			[
+				"action_",
+				"action_field_values"
+			],
+			[
+				"action",
+				"action_field_values"
+			],
+			[
+				"U",
+				"UserFeedSerializer"
+			],
+			[
+				"post_",
+				"post_delete"
+			],
+			[
+				"pa",
+				"pagination_class"
+			],
+			[
+				"ser",
+				"serializer_class"
+			],
+			[
+				"purely_",
+				"purely_tracked_qs"
+			],
+			[
+				"TrackingL",
+				"TrackingListManager"
+			],
+			[
+				"rela",
+				"related_name"
+			],
+			[
+				"star_rating",
+				"star_rating"
+			],
+			[
+				"is_au",
+				"is_authenticated"
+			],
+			[
+				"Fo",
+				"ForeignKey"
+			],
+			[
+				"Time",
+				"DateTimeField"
+			],
+			[
+				"star",
+				"star_target_object_id"
+			],
+			[
+				"star_target_",
+				"star_target_content_type"
+			],
+			[
+				"Follo",
+				"Following"
+			],
+			[
+				"related_",
+				"related_query_name"
+			],
+			[
+				"Generic",
+				"GenericForeignKey"
+			],
+			[
+				"Model",
+				"Model"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/Auth/urls.py",
+			"settings":
+			{
+				"buffer_size": 1696,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Auth/views.py",
+			"settings":
+			{
+				"buffer_size": 8556,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/templates/auth/form_success.html",
+			"settings":
+			{
+				"buffer_size": 68,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Auth/models.py",
+			"settings":
+			{
+				"buffer_size": 3015,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Profile/models.py",
+			"settings":
+			{
+				"buffer_size": 628,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Account/models.py",
+			"settings":
+			{
+				"buffer_size": 1897,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 588.0,
+		"last_filter": "package control",
+		"selected_items":
+		[
+			[
+				"package control",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Install Package Control"
+			]
+		],
+		"width": 618.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/keons/dev/sogangdjango/src",
+		"/C/Users/keons/dev/sogangdjango/src/Auth",
+		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail",
+		"/C/Users/keons/dev/sogangdjango/src/templates"
+	],
+	"file_history":
+	[
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/email/register_complete_check_activation_link_email.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_reset_phone_verification.html",
+		"/C/Users/keons/dev/sogangdjango/src/Auth/TODO.py",
+		"/C/Users/keons/dev/sogangdjango/src/sogangdjango/settings/base.py",
+		"/C/Users/keons/dev/sogangdjango/src/Auth/utils.py",
+		"/C/Users/keons/dev/sogangdjango/src/Auth/models.py",
+		"/C/Users/keons/dev/sogangdjango/src/Auth/forms.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/email/password_reset_subject.txt",
+		"/C/Users/keons/dev/sogangdjango/src/Auth/views.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_reset_phone_number_send.html",
+		"/C/Users/keons/dev/sogangdjango/src/Dummy/views.py",
+		"/C/Users/keons/dev/sogangdjango/src/sogangdjango/urls.py",
+		"/C/Users/keons/dev/sogangdjango/src/Dummy/urls.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/dummy/snippet/basenavbar.html",
+		"/C/Users/keons/dev/sogangdjango/src/sogangdjango/settings/locals_base.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/dummy/home.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/dummy/base.html",
+		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail/phone_utils.py",
+		"/C/Users/keons/dev/sogangdjango/src/Profile/models.py",
+		"/C/Users/keons/dev/sogangdjango/src/Auth/admin.py",
+		"/C/Users/keons/dev/sogangdjango/src/Account/models.py",
+		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail/fields.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_reset_phone.html",
+		"/C/Users/keons/dev/sogangdjango/src/Account/forms.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_reset_confirm.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/email/email_content_password_reset.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_reset_email_sent.html",
+		"/C/Users/keons/dev/sogangdjango/src/Account/managers.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_reset.html",
+		"/C/Users/keons/dev/sogangdjango/src/Account/admin.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/email_content_password_reset.html",
+		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail/views.py",
+		"/C/Users/keons/dev/sogangdjango/src/Auth/urls.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_change_done.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/changepassword.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/logout.html",
+		"/C/Users/keons/dev/sogangdjango/src/Profile/urls.py",
+		"/C/Users/keons/dev/sogangdjango/src/Profile/migrations/0001_initial.py",
+		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail/utils.py",
+		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail/CONSTANTS.py",
+		"/C/Users/keons/dev/sogangdjango/src/Profile/CONSTANTS.py",
+		"/C/Users/keons/dev/sogangdjango/src/Profile/utils.py",
+		"/C/Users/keons/dev/sogangdjango/src/Profile/admin.py",
+		"/C/Users/keons/dev/sogangdjango/src/Profile/fields.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/registration/register.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/register.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/login.html",
+		"/C/Users/keons/dev/sogangdjango/src/Account/TODO.py",
+		"/C/Users/keons/dev/blogworldforgit/src/djangoviews/views.py",
+		"/C/Users/keons/Desktop/forexample.html",
+		"/C/Users/keons/dev/blogworldforgit/src/templates/home/ourpage.html",
+		"/C/Users/keons/dev/blogworldforgit/src/templates/base.html",
+		"/C/Users/keons/Desktop/test.html",
+		"/C/Users/keons/Downloads/forexample.html",
+		"/C/Users/keons/dev/blogworldforgit/Blogworld.html",
+		"/C/Users/keons/dev/blogworldforgit/src/blogworld/settings/base.py",
+		"/C/Users/keons/dev/blogworldforgit/README.md",
+		"/C/Users/keons/Desktop/testwithcss.html",
+		"/C/Users/keons/dev/blogworldforgit/src/static/css/base.css",
+		"/C/Users/keons/dev/blogworldforgit/src/Post/urls.py",
+		"/C/Users/keons/dev/blogworldforgit/src/Post/serializers.py",
+		"/C/Users/keons/dev/blogworldforgit/src/Post/views.py",
+		"/C/Users/keons/dev/blogworldforgit/secret.json",
+		"/C/Users/keons/Desktop/소스코드용 폴더/ex_total.csv",
+		"/C/Users/keons/dev/blogworldforgit/src/Account/models.py",
+		"/C/Users/keons/dev/blogworldforgit/src/Account/admin.py",
+		"/C/Users/keons/dev/blogworldforgit/src/blogworld/urls.py",
+		"/C/Users/keons/dev/blogworldforgit/src/static/css/normalized.css",
+		"/C/Users/keons/dev/blogworldforgit/src/static/css/main.css",
+		"/C/Users/keons/Desktop/form.html",
+		"/C/Users/keons/dev/blogworldforgit/src/blogworld/settings/locals_base.py",
+		"/C/Users/keons/dev/blogworldforgit/src/djangoviews/static/css/base.css",
+		"/C/Users/keons/dev/blogworldforgit/src/static/static/css/base.css",
+		"/C/Users/keons/dev/blogworldforgit/src/templates/ourpage.html",
+		"/C/Users/keons/dev/blogworldforgit/src/ourpage.html",
+		"/C/Users/keons/dev/blogworldforgit/src/Tag/models.py",
+		"/C/Users/keons/dev/blogworldforgit/src/Post/models.py",
+		"/C/Users/keons/dev/blogworldforgit/src/Account/migrations/0001_initial.py",
+		"/C/Users/keons/dev/blogworldforgit/src/Profile/views.py",
+		"/C/Users/keons/dev/blogworldforgit/src/Profile/urls.py",
+		"/C/Users/keons/dev/blogworldforgit/src/Post/admin.py",
+		"/C/Users/keons/dev/blogworldforgit/src/Friend/models.py",
+		"/C/Users/keons/dev/blogworldforgit/src/Tag/admin.py",
+		"/C/Users/keons/dev/blogworldforgit/src/Friend/admin.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/외주작업/webscraping/PythonScraper.py",
+		"/C/Users/keons/dev/blogworldforgit/src/Account/apps.py",
+		"/C/Program Files/PostgreSQL/10/data/postgresql.conf",
+		"/C/Program Files/PostgreSQL/10/data/pg_hba.conf",
+		"/C/Program Files/PostgreSQL/10/share/psqlrc.sample",
+		"/C/Users/keons/dev/blogworldforgit/src/blogworld/settings/locals_keonsun.py",
+		"/C/Users/keons/dev/blogworldforgit/src/blogworld/settings/secret.json",
+		"/C/Users/keons/dev/theorbit/backend/theorbit/plather/settings/development.py",
+		"/C/Users/keons/dev/theorbit/backend/theorbit/plather/settings/base.py",
+		"/C/Users/keons/dev/blogworldforgit/src/secret.json",
+		"/C/Users/keons/dev/theorbit/backend/theorbit/secret.json",
+		"/C/Users/keons/dev/blogworldforgit/src/blogworld/settings/production.py",
+		"/C/Users/keons/dev/blogworldforgit/src/blogworld/settings/__init__.py",
+		"/C/Users/keons/dev/blogworldforgit/blogworld/blogworld/settings.py",
+		"/C/Users/keons/dev/blogworldforgit/blogworld/Account/models.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/ch3_1_6_imports.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/ch3_1_5_classinheritance2.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/ch3_1_6_classinheritance3.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/ch3_1_3_classbasics3.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/ch3_1_1_classbasics.py",
+		"/C/Users/keons/dev/blogworldforgit/.gitignore",
+		"/C/Users/keons/dev/blogworldforgit/gitignore.txt",
+		"/C/Users/keons/Downloads/eCommerce-master/README.md",
+		"/C/Users/keons/Downloads/Try-Reactjs-master/README.md",
+		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/README.md",
+		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/ch3_1_4_classinheritance.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/ch3_1_2_classbasics2.py",
+		"/C/Users/keons/Downloads/ch3_1_4_classinheritance.py",
+		"/C/Users/keons/AppData/Roaming/Sublime Text 3/Packages/User/aa.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/hh.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/example.py",
+		"/C/Users/keons/Desktop/소스코드용 폴더/preprocess.py",
+		"/C/Users/keons/Downloads/preprocess.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/forjleague/preprocess.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture2/ch2_1_2_function_one.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture2/ch2_1_1_function_basics.py",
+		"/C/Users/keons/Desktop/lecture3/ch3_1_5_classinheritance2.py",
+		"/C/Users/keons/Desktop/lecture3/ch3_1_4_classinheritance.py",
+		"/C/Users/keons/Desktop/lecture2/ch2_1_1_function_basics.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/forjleague/the_file_to_be_run.py",
+		"/C/Users/keons/Downloads/jleaguefunc_재승수정.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/forjleague/__init__.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/forjleague/jleaguefunc.py",
+		"/C/Users/keons/Desktop/GoogleSnyced/forjleague/jleaguefunc,py"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 168.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"AuthAccountActivateView",
+			"EMAIL_RESET_VALIDITY_TIME",
+			"password_reset_phone",
+			"AuthResetPhoneForm",
+			"UserProfile",
+			"active",
+			"unique_slug_generator",
+			"ReadOnlyPasswordHashField",
+			"force_bytes",
+			"PasswordResetTokenGenerator",
+			"urlsafe_base64_encode",
+			"render_to_string",
+			"get_current_site"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "C:\\Users\\keons\\dev\\sogangdjango\\src"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/Auth/urls.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1696,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1317,
+								1355
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 22.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/Auth/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8556,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8029,
+								8029
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2566.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/templates/auth/form_success.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 68,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								45,
+								45
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/Auth/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3015,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1425,
+								1425
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 495.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/Profile/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 628,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								254,
+								254
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/Account/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1897,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								181,
+								181
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 60.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 248.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 750.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 570.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 313.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
