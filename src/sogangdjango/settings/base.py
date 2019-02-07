@@ -25,7 +25,7 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'Account.User'
 
-# Application definition
+#Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'Post',
     'Account',
     'Following',
+    'ckeditor',
+    'ckeditor_uploader',
+    'django.forms',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +53,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'sogangdjango.urls'
+
+
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
 TEMPLATES = [
     {

@@ -1,12 +1,12 @@
 from django import forms
-import re
 from django.contrib import admin
+from ckeditor.widgets import CKEditorWidget
 from .models import GeneralPost
-
+import re
 
 class GeneralPostCreateAlterForm(forms.ModelForm):
 	title = forms.CharField(label='Enter Title',max_length=100)
-	content = forms.CharField(label='Enter Content',max_length=10000)
+	content = forms.CharField(label='Enter Content',max_length=10000, widget=CKEditorWidget())
 	tag = forms.CharField(label='Tag',max_length=100)
 	class Meta:
 		model = GeneralPost
@@ -27,8 +27,10 @@ class GeneralPostCreateAlterForm(forms.ModelForm):
 		title = self.cleaned_data['title']
 
 
+
 class GeneralPostDeleteForm(forms.ModelForm):
 
 	class Meta:
 		model = GeneralPost
 		fields = ()
+

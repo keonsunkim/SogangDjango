@@ -1,7 +1,11 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+
 from django.conf import settings
 
 from django.utils.translation import ugettext_lazy as _
+# for translation
+
 # for translation
 
 User = settings.AUTH_USER_MODEL
@@ -13,8 +17,7 @@ class GeneralPost(models.Model):
     title = models.CharField(verbose_name=_('post title'),
                              null=False, blank=False, max_length=50)
 
-    content = models.TextField(verbose_name=_('post content'),
-                               blank=False, max_length=30000)
+    content = RichTextField(max_length=3000, null=False)
 
     created = models.DateTimeField(verbose_name=_('post created'),
                                    auto_now_add=True)
@@ -40,9 +43,9 @@ class GeneralPost(models.Model):
 
 class Tag(models.Model):
     slug = models.SlugField(verbose_name=_('tag slug'),
-                                unique=True, max_length=35)
+                            unique=True, max_length=35)
     name = models.CharField(verbose_name=_('tag name'),
-                                max_length=35)
+                            max_length=35)
     created_at = models.DateTimeField(auto_now_add=True)
     # 생각해보니 태그로 search하면 post를 최신순으로 띄워야하니 created_at도 필요해서 남겼습니다.
 
@@ -51,14 +54,12 @@ class Tag(models.Model):
 
 class FilterTagRelation(models.Model):
     general_post = models.ForeignKey(
-            GeneralPost, on_delete=models.CASCADE)
+        GeneralPost, on_delete=models.CASCADE)
     filter_tag = models.ForeignKey(
-            Tag, on_delete=models.CASCADE)
+        Tag, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = _('filter tag relation')
         verbose_name_plural = _('filter tag relations')
 
-    def __str__(self):
-        return f"{self.general_post_id}:{self.filter_tag_id}"

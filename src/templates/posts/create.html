@@ -1,11 +1,13 @@
 
-{% extends 'base.html' %}
+{% extends 'posts/base.html' %}
 
-{% block head %}
+{% block content %}
 
-<head>
+<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 
@@ -44,66 +46,37 @@
 		background-color: #d1e0e0;
 	}
 
-	.card-body{
-		list-style: none;
-		font-family: sans-serif;
-	}
-
 
 </style>
-{% endblock %}
-
-{% block content %}
 
 <body>
-
 
 <div class="card  mb-4 " style="width:50rem; margin-left:15px; margin-top: 15px;">
 	<div class="card-title" >
 		<li style="color: white; text-align: center; font-size: 60px; list-style: none;">New Post</li>
-		<li class="author"> <a href="#" style=" color: black; font-size:18px;" >Author : {{request.user}}</a></li></div>
+		<li class="author"> <a href="{% url 'posts:user_post_list' user_id=request.user.id %}" style=" color: black; font-size:18px;" >Author : {{request.user}}</a></li></div>
 
 	<div class="card-body" style="height:50rem;">
-		<form method="post" class="GeneralPost-form">
+		<form action="{% url 'posts:create' %}" method="post" class="GeneralPost-form">
 		{% csrf_token %}
-        <div class="create">
-        <li>write a title: 
-        {{create_form.title}}</li>
-        <br>
-        <br>
-      	</div>
-    	 <p>
-    	 	{{create_form.content_as.p}}
-
-    	 	<textarea name="editor1" id="editor1" rows="10" cols="80"></textarea></p>
-    	 <br>
-    	 <br>
-    	<li>write tag: {{create_form.tag}}</li>  
-    	<br>
-    	<br>  
- 		<button type="submit" value="submit" name="save">Save</button>
+		{{ create_form.media }}
+        {{ create_form.as_p }}
+        <button type="submit" value="submit" name="save">Save</button>
         <button type="submit" value="submit" name="publish">Publish</button>
     	</form>
     </div>
-	</div>
-
-
-		
 </div>
+
+            <script>
+
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor1' );
+            </script>
 </body>
-<script>
-    CKEDITOR.replace( 'editor1' );
-</script>
-<script>
-    var data = CKEDITOR.instances.editor1.getData();
-    CKEDITOR.instances.editor1.updateElement();
-	// alert( document.getElementById( 'editor1' ).value );
-</script>
-<script>
 
 
 
 
-</script>
 
 {% endblock %}
