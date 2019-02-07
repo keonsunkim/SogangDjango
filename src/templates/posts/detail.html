@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+<h3>{{ post.title }}</h3>
+<a href="#">{{ post.author }}</a>
+<p>created: {{ post.created }} | last edited: {{ post.last_edited }}</p>
+<p>{{ post.content }}</p>
+</div>
+
+
+{% endblock %}

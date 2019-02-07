@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'Post',
     'Account',
     'Following',
-    'Post'
 ]
 
 MIDDLEWARE = [
