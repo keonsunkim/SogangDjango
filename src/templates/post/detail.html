@@ -1,0 +1,100 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</head>
+
+
+
+<style >
+
+
+	.card-title{
+		background-color: #d1e0e0;
+		font-family: sans-serif;
+		padding: 0px 5px 10px 5px;
+		
+	}
+	.card-body{
+		display: inline;
+		font-family: sans-serif;
+		font-size: 20px;
+		text-height: 160%;
+		
+	}
+
+	.author{
+		display: inline-block;
+		float:  right;
+		list-style-type: none;
+		padding-right: 10px;
+	
+	}
+
+
+	.text-secondary{
+		display: inline-flex;
+		height: 30px;
+		text-align: right;
+		padding: 5px 11.15px 10px 404px;
+		background-color: #d1e0e0;
+	}
+
+	.tags{
+		display: inline-block;
+		overflow: hidden;
+  	
+    }	
+
+</style>
+
+<body>
+
+
+<div class="card  mb-4 " style="width:50rem; margin-left:15px; margin-top: 15px;">
+	<div class="card-title" >
+		<li style="color: white; text-align: center; font-size: 60px; list-style: none;">{{ post.title }}</li>
+		<li class="author"> <a href="{% url 'posts:author_post_list' author_slugname=post.author.slug_name_for_url %}" style=" color: black; font-size:18px;" >Author : {{ post.author.slug_name_for_url}}</a></li></div>
+	<div class="card-body" style="height:30rem;"><p>{{ post.content }}</p></div>
+<span class="control hidden">
+	<li style="list-style: none; font-size: 20px; ">
+
+    	{% for tag in tags %}
+    	<div class="tags">
+    	<a href="{% url 'posts:tag_related_post_list' tag_slug=tag.filter_tag.slug %}"> #{{ tag.filter_tag.name }}</a></div>
+    	{% endfor %}
+
+</li>
+	<div  style=" list-style: none;">
+	<form action="{% url 'posts:delete' post_id=post.id %}", method="post">
+		{% csrf_token %}
+		{{ delete_form }}
+	<button type="submit" value="submit">delete</button>
+	<form action="{% url 'posts:edit' post_id=post.id %}", method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+	<p><button type="submit" value="submit">edit</button></p>
+	</form></div>
+	<div class="card-footer>">
+		<small class ="text-secondary" > created: {{ post.created }} | last edited: {{ post.last_edited }}</small>
+	</div>
+</div>
+</body>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

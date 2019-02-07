@@ -93,7 +93,10 @@ class User(AbstractBaseUser):
 
     @property
     def is_staff(self):
-        return self.user_type
+        if self.user_type in (10, 20, 30, 50):
+            return True
+        else:
+            return False
 
     @property
     def is_admin(self):

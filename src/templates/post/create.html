@@ -1,0 +1,109 @@
+
+
+{% extends 'base.html' %}
+
+{% block head %}
+
+<head>
+<script src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+
+
+<style >
+
+
+	.card-title{
+		background-color: #d1e0e0;
+		font-family: sans-serif;
+		padding: 0px 5px 10px 5px;
+		
+	}
+	.card-body{
+		display: inline;
+		font-family: sans-serif;
+		font-size: 20px;
+		text-height: 160%;
+		
+	}
+
+	.author{
+		display: inline-block;
+		float:  right;
+		list-style-type: none;
+		padding-right: 10px;
+	
+	}
+
+
+	.text-secondary{
+		display: inline-flex;
+		height: 20px;
+		text-align: right;
+		padding: 5px 11.15px 10px 404px;
+		background-color: #d1e0e0;
+	}
+
+	.card-body{
+		list-style: none;
+		font-family: sans-serif;
+	}
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+<body>
+
+
+<div class="card  mb-4 " style="width:50rem; margin-left:15px; margin-top: 15px;">
+	<div class="card-title" >
+		<li style="color: white; text-align: center; font-size: 60px; list-style: none;">New Post</li>
+		<li class="author"> <a href="{% url 'posts:user_post_list'  %}" style=" color: black; font-size:18px;" >Author : {{request.user}}</a></li></div>
+
+	<div class="card-body" style="height:50rem;">
+		<form method="post" class="GeneralPost-form">
+		{% csrf_token %}
+        <div class="create">
+        <li>write a title: 
+        {{form.title}}</li>
+        <br>
+        <br>
+    	{{form.content_as.p}}
+    	</div>
+    	 <p><textarea name="editor1" id="editor1" rows="10" cols="80"></textarea></p>
+    	 <br>
+    	 <br>
+    	<li>write tag: {{form.tag}}</li>  
+    	<br>
+    	<br>  
+ 		 <button type="submit" value="submit" name="save">Save</button>
+        <button type="submit" value="submit" name="publish">Publish</button>
+    	</form>
+    </div>
+	</div>
+
+
+		
+</div>
+</body>
+<script>
+    CKEDITOR.replace( 'editor1' );
+</script>
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+{% endblock %}
