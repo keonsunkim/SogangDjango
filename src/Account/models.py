@@ -89,7 +89,7 @@ class User(AbstractBaseUser):
         # 존재하지 않으면 False 를 반환한다.
 
     def __str__(self):
-        return "email: %s, {slug_name_for_url: %s}" % (self.email, self.slug_name_for_url)
+        return "email: %s, slug_name_for_url: %s" % (self.email, self.slug_name_for_url)
 
     @property
     def is_staff(self):

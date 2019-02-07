@@ -19,5 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     #url(r'^home/',example_view),
     url(r'^admin/', admin.site.urls),
-    #url(r'^posts/',include('Post.urls', namespace='posts')),
-] #+ static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+    url(r'^posts/', include('Post.urls', namespace='posts')),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+]
