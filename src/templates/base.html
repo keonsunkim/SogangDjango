@@ -12,7 +12,8 @@
     <head>
 
     {% block head %}
-    {% endblock %}  
+    {% endblock %}
+
     <title>Our Portfolio Page
       {% block subtitle %}
       {% endblock %}
@@ -31,7 +32,6 @@
   </style>
   </style>
   <body>
-    
     {% block logo_container %}
     <div class="container  logo-container">
       <ul class="logo-container-list">
@@ -43,7 +43,9 @@
         <button class="btn btn-light border-left btn-sm search-button"  id="p2" type="button" 
         style="margin-left: 25px;" 
          >Search</button>
+
        </div>      
+      
         <div class="col-3">
         <div class="input-group input-group-sm mb-3" id="p1"  style="display: none;">
          <input type="text" class="form-control" 
@@ -51,7 +53,7 @@
        </div>
         <div class="col-sm" id="login-input" >
           <div class="d-flex justify-content-end"  >
-            <form method="post" class="form-inline">
+            <form class="form-inline" method="post"  >
               <div class="input-group input-group-sm mb-3"  id="p3" style="display: none;">
                 <input type="text" class="form-control userid" 
                 placeholder="User ID">
@@ -60,6 +62,8 @@
               </div>
               <button type="submit" class="btn btn-light 
               btn-sm mb-3 login-button" id="p4">Login</button>
+                 {% csrf_token %}
+                {{ form.as_p }}
             </form>
           </div>
         </div>
@@ -74,7 +78,7 @@
 
     {% endblock %}
     {% block horizontal_navbar %}
-     <div class="container mt-3">
+    <div class="container mt-3">
       <div class="navbar navbar-expand-lg bg-light" id="horizontal-navbar">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
@@ -83,12 +87,12 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Posts</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Follows
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
               <a class="dropdown-item" href="#">My Followers</a>
               <a class="dropdown-item" href="#">My Followings</a> 
             </div>
@@ -140,7 +144,11 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<<<<<<< HEAD
 <!--     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+=======
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+>>>>>>> ff5d8967f7ff061dd7eed60404fc0e2c36354b28
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
@@ -160,7 +168,7 @@
 
      $(document).ready(function() {
         $("#p4").click(function(){
-            $("#p3").toggle(1000);
+            $("#p3").show(1000);
         });
     });
 </script>

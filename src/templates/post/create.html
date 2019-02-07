@@ -7,6 +7,7 @@
 <head>
 <script src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js"></script>
 </head>
 
 
@@ -65,13 +66,14 @@
 		<li class="author"> <a href="{% url 'posts:user_post_list'  %}" style=" color: black; font-size:18px;" >Author : {{request.user}}</a></li></div>
 
 	<div class="card-body" style="height:50rem;">
-		<form method="post" class="GeneralPost-form">
+		<form action="{% url 'posts:create' %}" method="post" class="GeneralPost-form">
 		{% csrf_token %}
         <div class="create">
         <li>write a title: 
         {{form.title}}</li>
         <br>
         <br>
+        {{form.media}}
     	{{form.content_as.p}}
     	</div>
     	 <p><textarea name="editor1" id="editor1" rows="10" cols="80"></textarea></p>
@@ -93,17 +95,5 @@
 <script>
     CKEDITOR.replace( 'editor1' );
 </script>
-
-
-
-
-
 </script>
-
-
-
-
-
-
-
 {% endblock %}

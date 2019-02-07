@@ -13,8 +13,50 @@ from django.urls import reverse_lazy
 
 User = get_user_model()
 
+@login_required
+def post_delete_view(request, post_id):
+	if request.method == "POST":
+		delete_form = GeneralPostDeleteForm(request.POST)
+		if delete_form.is_valid():
+			del_post = get_object_or_404(GeneralPost, id=post_id)
+			if del_post.author_id == request.user.id:
+				del_post.delete()
+			else:
+				return HttpResponse(status=403)
+		else:
+			return HttpResponse(status=400)
+	else:
+		delete_form = GeneralPostDeleteForm()
+	return render(request,'post/user_post_list.html',{'delete_form': delete_form})
 
 
+@login_required
+def post_edit_view(request, post_id):
+	if request.method == "POST":
+		edit_post = get_object_or_404(GeneralPost, id=post_id)
+		edit_form = GeneralPostCreateAlterForm(request.POST, instance=edit_post)
+		context = dict(edit_post=edit_post, edit_form=edit_form)
+		if edit_form.is_valid():
+			print("form is valid")
+			if edit_post.author_id == request.user.id:
+				print("correct user")
+				edited_post = edit_form.save()
+				for tag in edit_form.cleaned_data['tag']:
+					tag_obj, created = Tag.objects.get_or_create(name=tag[1:],slug=tag[1:])
+					FilterTagRelation.objects.get_or_create(filter_tag_id=tag_obj.id,general_post_id=edited_post.id)
+				return redirect(reverse_lazy('posts:detail', kwargs={"post_id":edited_post.id}))
+			else:
+				return HttpResponse(status=403)
+		else:
+			return render(request, 'post/edit.html', context)
+	else:
+		edit_post = get_object_or_404(GeneralPost, id=post_id)
+		edit_tag = get_object_or_404(FilterTagRelation, general_post_id=post_id)
+		
+		edit_form = GeneralPostCreateAlterForm(
+			initial={'title':edit_post.title,'content':edit_post.content})
+		context = dict(edit_post=edit_post, edit_form=edit_form)
+		return render(request, 'post/edit.html', context)
 
 
 
@@ -39,20 +81,47 @@ def post_detail_view(request, post_id):
 		
 		tags = FilterTagRelation.objects.filter(general_post_id=post_id)
 		delete_form = GeneralPostDeleteForm()
+		edit_form = GeneralPostCreateAlterForm()
 		context = dict()
 		context["post"] = post
 		context["delete_form"] = delete_form
 		context["tags"] = tags
+		context["edit_form"] = edit_form
 		return render (request,"post/detail.html", context)
 	   
 
 def post_list_view(request):
 	user=request.user
-	posts = GeneralPost.objects.all()
+	post_list = GeneralPost.objects.all()
+	paginator = Paginator(post_list, 6)
+	page = request.GET.get('page')
+	try: 
+		posts = paginator.page(page)
+	except PageNotAnInteger:
+		posts = paginator.page(1)
+	except EmptyPage:
+		posts = paginator.page(paginator.num_pages)
 	context = {
 		"posts":posts
 	}
 	return render(request,"post/list.html",context)
+
+
+
+# def post_list_view(request):
+# 	post_list = GeneralPost.objects.all()
+# 	paginator = Paginator(post_list, 6)
+
+# 	page = request.GET.get('page')
+
+# 	try: 
+# 		posts = paginator.page(page)
+# 	except PageNotAnInteger:
+# 		posts = paginator.page(1)
+# 	except EmptyPage:
+# 		posts = paginator.page(paginator.num_pages)
+
+# 	return render(request,"posts/list.html", {'posts':posts})
 
 
 @require_http_methods(["GET","POST"])
@@ -75,8 +144,6 @@ def author_post_list_view(request, author_slugname):
 		return render(request,'post/author_post_list.html', { 'author_posts': author_posts })
 	else:
 		raise Http405
-
-
 
 	
 @login_required
@@ -107,42 +174,14 @@ def post_create_view(request):
 	return render(request,'post/create.html', {'form': form})
 
 
-@login_required
-def post_delete_view(request, post_id):
-	if request.method == "POST":
-		delete_form = GeneralPostDeleteForm(request.POST)
-		if delete_form.is_valid():
-			del_post = get_object_or_404(GeneralPost, id=post_id)
-			if del_post.author_id == request.user.id:
-				del_post.delete()
-			else:
-				return HttpResponse(status=403)
-		else:
-			return HttpResponse(status=400)
-	else:
-		delete_form = GeneralPostDeleteForm()
-	return render(request,'post/user_post_list.html',{'delete_form': delete_form})
 
 
 
 
-@login_required
-def post_edit_view(request, post_id):
-	if request.method == "POST":
-		edit_form =GeneralPostCreateAlterForm(request.POST)
-		if edit_form.is_valid():
-			print("form is valid")
-			edit_post = get_object_or_404(GeneralPost, id=post_id)
-			if edit_post.author_id == request.user.id:
-				print("correct user")
-				edit_post.save()
-			else:
-				return HttpResponse(status=403)
-		else:
-			return HttpResponse(status=400)
-	else:
-		edit_post = get_object_or_404(GeneralPost, id=post_id)
-		edit_form = GeneralPostCreateAlterForm(initial={'title':title,'content':content,'tag':tag})
-		return render(request, 'post/create.html',{'edit_form' : edit_form})
-	
+
+
+
+
+
+
 
