@@ -117,6 +117,7 @@ dmypy.json
 
 # secrets
 secret.json
+secrets.json
 
 #migrations
 migrations/
