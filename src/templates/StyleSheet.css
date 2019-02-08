@@ -1,0 +1,29 @@
+.logo-container {
+  color: white;
+  border-style: solid;
+  border-color: black;
+  border: 0.1px;
+  list-style-type: none;
+  }
+
+.logo-container ul{
+  padding-left: 10px;
+  }
+
+.logo-container li{
+  list-style-type: none;
+  }
+
+.logo {
+  padding-top: 15px;    
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+  }
+
+.form-inline input{
+  margin-right:5px;
+  }
+
+.content-area {
+  padding: 15px;
+  }

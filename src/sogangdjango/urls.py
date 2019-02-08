@@ -17,7 +17,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from homepage.views import homepage_view
 urlpatterns = [
-    url(r'^follow/', include('Following.urls')),
+    # url('^', include('django.contrib.auth.urls')),
+    url(r'^follow/', include('Following.urls', namespace='follow')),
     url(r'^home/', homepage_view),
     url(r'^admin/', admin.site.urls),
 ]

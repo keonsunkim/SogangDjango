@@ -6,44 +6,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" type="text/css" href="{% static 'StyleSheet.css' %}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    {% block stylesheets %}
-    <style type="text/css">
-        #logo-container {
-          color: white;
-          border-style: solid;
-          border-color: black;
-          border: 0.1px;
-          list-style-type: none;
-        }
 
-        #logo-container ul{
-          padding-left: 10px;
-        }
-
-        #logo-container li{
-          list-style-type: none;
-        }
-
-        #logo {
-          padding-top: 15px;    
-          padding-bottom: 20px;
-          margin-bottom: 0px;
-        }
-
-        .form-inline input{
-          margin-right:5px;
-        }
-
-        #content-area {
-          margin-top: 15px;
-          padding: 15px;
-        }
-
-    </style>
-    {% endblock stylesheets %}
     <title>Our Portfolio Page
       {% block subtitle %}
       {% endblock %}
@@ -51,23 +17,19 @@
   </head>
   <body>
     {% block logo_container %}
-    <div class="container bg-success" id="logo-container">
+    <div class="container bg-success logo-container">
       <ul class="logo-container-list">
-        <li><h1 id="logo">Sogangdjango Portfolio</h1></li>
-        </div>
+        <li><h1 class="logo">Sogangdjango Portfolio</h1></li>
       </ul>
-    </div>
-    {% endblock logo_container %}
-    {% block search-login %}
-    <div class="container" id="search-login">
+    <div class="container search-login">
       <div class="row">
-        <div class="col-3" id="search-bar">
+        <div class="col-3 search-bar">
         <div class="input-group input-group-sm mb-3">
          <input type="text" class="form-control" 
-         placeholder="Search..." id="search">
+         placeholder="Search...">
          <div class="input-group-append">
-         <button class="btn btn-outline-secondary" type="button" 
-         id="search-button">Search</button>
+         <button class="btn btn-light border-left search-button" type="button" 
+         >Search</button>
          </div>
         </div>
       </div>
@@ -75,28 +37,26 @@
           <div class="d-flex justify-content-end">
             <form class="form-inline" method="post">
               <div class="input-group input-group-sm mb-3">
-                <input type="text" class="form-control" id="userId" 
+                <input type="text" class="form-control userid" 
                 placeholder="User ID">
-                <input type="text" class="form-control" id="userPassword" 
+                <input type="text" class="form-control userpassword" 
                 placeholder="Password">
               </div>
-              <button type="submit" class="btn btn-outline-secondary btn-sm mb-3" 
-              id="login-button">Login</button>
+              <button type="submit" class="btn btn-light 
+              btn-sm mb-3 login-button">Login</button>
             </form>
           </div>
         </div>
       </div>
     </div>
+  </div>
     {% endblock %}
     {% block horizontal_navbar %}
-    <div class="container">
+    <div class="container mt-3">
       <div class="navbar navbar-expand-lg bg-light" id="horizontal-navbar">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">My Page</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Posts</a>
@@ -111,14 +71,47 @@
               <a class="dropdown-item" href="#">My Followings</a> 
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
+            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              My Page
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">My Profile</a>
+              <a class="dropdown-item" href="#">My Posts</a>
+              <a class="dropdown-item" href="#">Settings</a> 
+            </div>
           </li>
         </ul>      
       </div>
     </div>
     {% endblock %}
-    <div class="container">
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-3 side-bar">
+        <div class="flex-column">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h5>Recent Posts</h5></li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h5>Followings</h5></li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+          </ul>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h5>Followers</h5></li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+          </ul>
+        </div>
+        </div>
+
+
+   <div class="col-9 content-area bg-light">
     {% block content %}
     {% endblock %}
     </div>
