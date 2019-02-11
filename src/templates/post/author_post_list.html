@@ -3,48 +3,37 @@
 
 {% block content %}
 
-<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+{% load static %}
+<head> 
+<link rel="stylesheet" type="text/css" href="{% static 'css/author_post_list.css' %}">
 </head>
 
 
-
-<style >
-order-color:#d1e0e0;
-	}
-	.card-deck{
-		border:solid;
-		border-color:#d1e0e0;
-	}
-	.card-title{
-		text-align: center;
-		font-family: sans-serif;
-		
-	}
-	.card-footer{
-		text-align: right;
-		display: inline-flex;
-		height: 30px;
-		padding: 3px 3px 3px 3px;
-		background-color: #d1e0e0;
-	}
-
-
-</style>
-
 <body>
- {% for post in author_posts %}
-<div class="card-deck" style="display: inline-flex; ">
-  <div class="card  mb-4 " style="width:25rem; margin-left:25px;">
-  	<h1 class="card-title" ><a href="{% url 'posts:detail' post_id=post.id %}" style="color: #52527a;">{{ post.title }}</a> 
-	</h1>
-	<div class="card-footer">
-      <small class="text-secondary right" >{{ post.created }}</small>
+  <div class="row">
+      {% for post in author_posts %}
+    <div class="container col-6 mb-4 ml-0 p-1">
+      <div class="card border-info ml-1">
+          <h1 class="card-title" >
+            <a href="{% url 'posts:detail' post_id=post.id %}" >{{ post.title }}</a>
+          </h1>
+        <div class="card-footer d-flex justify-content-end align-items-center">
+          <small class="text-secondary " > {{ post.created }} </small>
+        </div>
+      </div>  
+    </div>
+      {% endfor %}
   </div>
-</div>
-</div>
- {% endfor %}
-</body>
+  <div class="pagination">
+      <span class="step-links">
+        {% if author_posts.has_previous %}
+        <a href="?page={{ author_posts.previous_page_number }}">previous</a>
+        {% endif %}
+        <span class="current"> Page {{ author_posts.number }} of {{ author_posts.paginator.num_pages }}.</span>
+        {% if author_posts.has_next %}
+        <a href="?page={{ author_posts.next_page_number }}">next</a>
+        {% endif %}
+      </span>
+  </div>     
 {% endblock %}
+
