@@ -10,6 +10,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <head>
+
+    {% block head %}
+    {% endblock %}
+
     <title>Our Portfolio Page
       {% block subtitle %}
       {% endblock %}
@@ -19,6 +23,7 @@
   <style>
 
     .logo-container{
+      padding-top: 10px;
       background-color: #c2d6d6;
     }
  
@@ -38,23 +43,17 @@
         <button class="btn btn-light border-left btn-sm search-button"  id="p2" type="button" 
         style="margin-left: 25px;" 
          >Search</button>
-       </div>
+
+       </div>      
       
-         
         <div class="col-3">
         <div class="input-group input-group-sm mb-3" id="p1"  style="display: none;">
          <input type="text" class="form-control" 
          placeholder="Search..."> </div> 
        </div>
-
-       
-      
-      
-
         <div class="col-sm" id="login-input" >
           <div class="d-flex justify-content-end"  >
             <form class="form-inline" method="post"  >
-             
               <div class="input-group input-group-sm mb-3"  id="p3" style="display: none;">
                 <input type="text" class="form-control userid" 
                 placeholder="User ID">
@@ -145,14 +144,15 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="path/to/jquery.js"></script>
     <script src="path/to/jquery.cookie.js"></script>
-    <script src="path/to/jquery.djangocsrf.js"></script>
+    <script src="path/to/jquery.djangocsrf.js"></script> -->
     <script>
 
       

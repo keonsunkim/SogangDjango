@@ -1,12 +1,9 @@
 from django import forms
 from django.contrib import admin
+from .models import GeneralPost, Tag, FilterTagRelation
 from ckeditor.widgets import CKEditorWidget
-
-from .models import GeneralPost,Tag,FilterTagRelation
-
-# admin.site.register(GeneralPost)
-admin.site.register(Tag)
 admin.site.register(FilterTagRelation)
+admin.site.register(Tag)
 
 class GeneralPostAdminForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorWidget())
@@ -18,4 +15,4 @@ class GeneralPostAdmin(admin.ModelAdmin):
     form = GeneralPostAdminForm
 
 admin.site.register(GeneralPost, GeneralPostAdmin)
-# Register your models here.
+

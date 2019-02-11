@@ -56,7 +56,7 @@
 		<li class="author"> <a href="{% url 'posts:user_post_list' user_id=request.user.id %}" style=" color: black; font-size:18px;" >Author : {{request.user}}</a></li></div>
 
 	<div class="card-body" style="height:50rem;">
-		<form action="{% url 'posts:edit' post_id=edit_post.id %}" method="post" class="GeneralPost-form">
+		<form action="{% url 'posts:save_edited' post_id=edit_post.id %}" method="POST" class="GeneralPost-form">
 		{% csrf_token %}
 		{{ edit_form.media }}
         {{ edit_form.as_p }}

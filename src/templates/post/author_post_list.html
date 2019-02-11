@@ -34,8 +34,8 @@ order-color:#d1e0e0;
 
 </style>
 
-
- {% for post in user_posts %}
+<body>
+ {% for post in author_posts %}
 <div class="card-deck" style="display: inline-flex; ">
   <div class="card  mb-4 " style="width:25rem; margin-left:25px;">
   	<h1 class="card-title" ><a href="{% url 'posts:detail' post_id=post.id %}" style="color: #52527a;">{{ post.title }}</a> 
@@ -46,11 +46,5 @@ order-color:#d1e0e0;
 </div>
 </div>
  {% endfor %}
-
+</body>
 {% endblock %}
-
-
-
-
-
-

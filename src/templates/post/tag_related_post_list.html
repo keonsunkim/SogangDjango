@@ -14,20 +14,15 @@
 <style >
 order-color:#d1e0e0;
 	}
-	.card-deck{
-		border:solid;
-		border-color:#d1e0e0;
-	}
 	.card-title{
 		text-align: center;
 		font-family: sans-serif;
 		
 	}
 	.card-footer{
-		text-align: right;
 		display: inline-flex;
 		height: 30px;
-		padding: 3px 3px 3px 3px;
+		text-align: right;
 		background-color: #d1e0e0;
 	}
 
@@ -35,22 +30,18 @@ order-color:#d1e0e0;
 </style>
 
 
- {% for post in user_posts %}
+ {% for post in related_post_objects %}
 <div class="card-deck" style="display: inline-flex; ">
   <div class="card  mb-4 " style="width:25rem; margin-left:25px;">
-  	<h1 class="card-title" ><a href="{% url 'posts:detail' post_id=post.id %}" style="color: #52527a;">{{ post.title }}</a> 
-	</h1>
+	<h1 class="card-title" style="color: #52527a;"><a href="{% url 'posts:detail' post_id=post.id %}" style="color: #52527a;"> {{ post.general_post.title }}
+	</a></h1>
 	<div class="card-footer">
-      <small class="text-secondary right" >{{ post.created }}</small>
+      <small class="text-secondary right"  >{{ post.general_post.created }}</small>
   </div>
 </div>
 </div>
- {% endfor %}
+	{% endfor %}
+
 
 {% endblock %}
-
-
-
-
-
 

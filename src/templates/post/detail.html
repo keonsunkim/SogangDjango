@@ -6,13 +6,15 @@
 <a href="#">{{ post.author }}</a>
 <p>created: {{ post.created }} | last edited: {{ post.last_edited }}</p>
 <p>{{ post.content }}</p>
-<form action="{% url 'posts:delete' post_id=post.id %}" method="POST">
-	<a href="{% url 'posts:edit' post_id=post.id %}" class='btn btn-info' role="button">edit </a>
-	{% csrf_token %}
-    {{ delete_form.as_p }}
- 	<button type="submit" value="submit" class='btn btn-info' name="delete">Delete</button>
-</form>
+{% if request.user.id == post.author_id %}
+	<form action="{% url 'posts:delete' post_id=post.id %}" method="POST">
+		<a href="{% url 'posts:edit' post_id=post.id %}" class='btn btn-info' role="button">edit </a>
+		{% csrf_token %}
+    	{{ delete_form.as_p }}
+	<button type="submit" value="submit" class='btn btn-info' name="delete">Delete</button>
+	</form>
+{% else %}
+{% endif %}
+
 </div>
-
-
 {% endblock %}

@@ -1,15 +1,14 @@
 from django.db import models
+from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 from ckeditor.fields import RichTextField
 
-from django.conf import settings
-
-from django.utils.translation import ugettext_lazy as _
-
-# for translation
 
 User = settings.AUTH_USER_MODEL
 
 class GeneralPost(models.Model):
+
+
     author = models.ForeignKey(
         User, related_name='user_posts', on_delete=models.CASCADE)
 
@@ -40,6 +39,7 @@ class GeneralPost(models.Model):
         return f'{self.author} posted {self.title}!'
 
 
+
 class Tag(models.Model):
     slug = models.SlugField(verbose_name=_('tag slug'),
                             unique=True, max_length=35)
@@ -59,5 +59,8 @@ class FilterTagRelation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+
         verbose_name = _('filter tag relation')
         verbose_name_plural = _('filter tag relations')
+
+
