@@ -1,81 +1,55 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block head %}
 
-<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+{% load static %}
+
+<head> 
+<link rel="stylesheet" type="text/css" href="{% static 'css/create.css' %}">
 <script src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
+{% endblock %}
 
-
-<style >
-
-
-	.card-title{
-		background-color: #d1e0e0;
-		font-family: sans-serif;
-		padding: 0px 5px 10px 5px;
-		
-	}
-	.card-body{
-		display: inline;
-		font-family: sans-serif;
-		font-size: 20px;
-		text-height: 160%;
-		
-	}
-
-	.author{
-		display: inline-block;
-		float:  right;
-		list-style-type: none;
-		padding-right: 10px;
-	
-	}
-
-
-	.text-secondary{
-		display: inline-flex;
-		height: 20px;
-		text-align: right;
-		padding: 5px 11.15px 10px 404px;
-		background-color: #d1e0e0;
-	}
-
-
-</style>
+{% block content %}
 
 <body>
-
-<div class="card  mb-4 " style="width:50rem; margin-left:15px; margin-top: 15px;">
-	<div class="card-title" >
-		<li style="color: white; text-align: center; font-size: 60px; list-style: none;">New Post</li>
-		<li class="author"> <a href="{% url 'posts:user_post_list' user_id=request.user.id %}" style=" color: black; font-size:18px;" >Author : {{request.user}}</a></li></div>
-
-	<div class="card-body" style="height:50rem;">
-		<form action="{% url 'posts:create' %}" method="post" class="GeneralPost-form">
-		{% csrf_token %}
-		{{ create_form.media }}
-        {{ create_form.as_p }}
-        <button type="submit" value="submit" name="save">Save</button>
-        <button type="submit" value="submit" name="publish">Publish</button>
-    	</form>
-    </div>
-</div>
-
-            <script>
-
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace( 'editor1' );
-            </script>
+	<div class="card  mb-4">
+		<div class="card-title" >
+		  <li class="newpost">New Post</li>
+			<li class="author mb-1">Author : {{request.user.slug_name_for_url}}</li>
+		</div>
+		<div class="card-body">
+			{% if messages %}
+		    <ul classssss="messages">
+	    	{% for message in messages %}
+	        <div class="alert alert-danger alert-dismissible fade show" role="alert">{{ message }}
+	        </div>
+	    	{% endfor %}
+		    </ul>
+			{% endif %} 
+		    <form action="{% url 'posts:create' %}" method="post" class="GeneralPost-form">
+			{% csrf_token %}
+	        {{form.title}}
+	        <small id="title-help" class="form-text text-muted ml-2"> 
+	        Required. 50 characters or fewer.</small>
+	        <br>
+	        {{form.media}}
+	    	{{form.content}}
+	    	<br>
+	    	<br>
+	    	{{form.tag}}
+	    	<small id="tag-help" class="form-text text-muted ml-2">NO more than 10 tags.</small>
+	    	<br>    
+	 		<button type="submit" value="submit" name="save">Save</button>
+	        <button type="submit" value="submit" name="publish">Publish</button>
+	    	</form>
+	    </div>
+	</div>
 </body>
-
-
-
-
+<script>
+    CKEDITOR.replace( 'editor1' );
+</script>
 
 {% endblock %}

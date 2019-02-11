@@ -54,6 +54,8 @@ class Tag(models.Model):
 class FilterTagRelation(models.Model):
     general_post = models.ForeignKey(
         GeneralPost, on_delete=models.CASCADE)
+  
+    
     filter_tag = models.ForeignKey(
         Tag, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
