@@ -16,13 +16,9 @@ class GeneralPostCreateAlterForm(forms.ModelForm):
 
 	def clean_tag(self):
 		data = self.cleaned_data['tag']
-		print(data)
 		tag_list = re.findall(r'(?<!#)[#]{1}[\w]+', data)
-		print(tag_list)
 		subtracted_data = re.sub(r'(?<!#)[#]{1}[\w]+', '', data)
-		print(subtracted_data)
 		subtracted_data = re.sub(r' ', '', subtracted_data)
-		print(subtracted_data)
 		if len(tag_list) > 10:
 			raise forms.ValidationError("No more than 10 Tags!")
 		if subtracted_data:
