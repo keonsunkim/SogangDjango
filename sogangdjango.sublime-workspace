@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"var",
+				"var"
+			],
+			[
+				"i",
+				"i"
+			],
+			[
+				"error",
+				"errorThrown"
+			],
+			[
+				"email",
+				"email_to_check"
+			],
+			[
+				"password",
+				"password_reset_form"
+			],
+			[
+				"User",
+				"UserAuthenticationForm"
+			],
+			[
+				"ra",
+				"random_string_generator"
+			],
+			[
+				"len",
+				"length2"
+			],
+			[
+				"veri",
+				"verification_code"
+			],
+			[
+				"uid",
+				"uidb64"
+			],
+			[
+				"Auth",
+				"AuthActivationConfirmView"
+			],
+			[
 				"auth",
 				"auth_phone_verification_form"
 			],
@@ -50,10 +94,6 @@
 			[
 				"E",
 				"EMAIL_RESET_VALIDITY_TIME"
-			],
-			[
-				"password",
-				"password_reset_phone"
 			],
 			[
 				"Image",
@@ -340,10 +380,6 @@
 				"URLs"
 			],
 			[
-				"User",
-				"UserFeedListSerializer"
-			],
-			[
 				"conte",
 				"content_type"
 			],
@@ -431,54 +467,71 @@
 			"file": "src/Auth/urls.py",
 			"settings":
 			{
-				"buffer_size": 1696,
+				"buffer_size": 1894,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "src/Auth/views.py",
 			"settings":
 			{
-				"buffer_size": 8556,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/templates/auth/form_success.html",
-			"settings":
-			{
-				"buffer_size": 68,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/Auth/models.py",
-			"settings":
-			{
-				"buffer_size": 3015,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/Profile/models.py",
-			"settings":
-			{
-				"buffer_size": 628,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/Account/models.py",
-			"settings":
-			{
-				"buffer_size": 1897,
+				"buffer_size": 14610,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/Auth/api/urls.py",
+			"settings":
+			{
+				"buffer_size": 579,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Auth/api/views.py",
+			"settings":
+			{
+				"buffer_size": 16739,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/templates/snippets/widget_tweak_form.html",
+			"settings":
+			{
+				"buffer_size": 1030,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Auth/forms.py",
+			"settings":
+			{
+				"buffer_size": 4617,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/templates/auth/find_lost_account.html",
+			"settings":
+			{
+				"buffer_size": 2794,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/templates/auth/snippets/widget_tweak_form_for_phone.html",
+			"settings":
+			{
+				"buffer_size": 4275,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -540,47 +593,88 @@
 	[
 		"/C/Users/keons/dev/sogangdjango/src",
 		"/C/Users/keons/dev/sogangdjango/src/Auth",
-		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail",
-		"/C/Users/keons/dev/sogangdjango/src/templates"
+		"/C/Users/keons/dev/sogangdjango/src/Auth/api",
+		"/C/Users/keons/dev/sogangdjango/src/Profile",
+		"/C/Users/keons/dev/sogangdjango/src/sogangdjango",
+		"/C/Users/keons/dev/sogangdjango/src/templates",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/snippets",
+		"/C/Users/keons/dev/sogangdjango/src/templates/snippets"
 	],
 	"file_history":
 	[
+		"/C/Users/keons/dev/sogangdjango/src/Auth/models.py",
+		"/C/Users/keons/Desktop/js하기/test.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/snippets/widget_tweak_form_for_phone.html",
+		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail/fields.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/base.html",
+		"/C/Users/keons/dev/sogangdjango/src/sogangdjango/urls.py",
+		"/C/Users/keons/dev/sogangdjango/src/Auth/forms.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/find_lost_account.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/snippets/widget_tweak_form_for_email.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/snippets/widget_tweak_form.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/snippets/widget_tweak_form_for_phone.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/send_phone_verification_code.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/snippets/send_phone_verification_code.html",
+		"/C/Users/keons/dev/sogangdjango/src/Auth/views.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/form_success.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_reset_email.html",
+		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail/validators.py",
+		"/C/Users/keons/dev/sogangdjango/src/Auth/api/views.py",
+		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail/phone_utils.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/logout.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/login.html",
+		"/C/Users/keons/dev/sogangdjango/src/Home/views.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/snippets/phone_verification_send_widget.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/snippets/widget_tweak_form2.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/email/find_lost_account.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_change_done.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/register.html",
+		"/C/Users/keons/Downloads/ggg/themeforest-19755363-olympus-html-social-network-toolkit/src/01-LandingPage.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/snippets/top_nav_bar.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/home/home.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/home/landing.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/home/about.html",
+		"/C/Users/keons/dev/sogangdjango/src/Auth/urls.py",
+		"/C/Users/keons/dev/sogangdjango/src/sogangdjango/settings/base.py",
+		"/C/Users/keons/Downloads/ggg/themeforest-19755363-olympus-html-social-network-toolkit/src/css/main.css",
+		"/C/Users/keons/dev/sogangdjango/src/templates/landing.html",
+		"/C/Users/keons/dev/sogangdjango/src/Account/managers.py",
+		"/C/Users/keons/dev/sogangdjango/src/Account/utils.py",
+		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail/forms.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/verify_phone_code.html",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/email/email_content_account_activate.html",
+		"/C/Users/keons/dev/sogangdjango/src/sogangdjango/settings/locals_base.py",
+		"/C/Users/keons/dev/sogangdjango/src/sogangdjango/settings/locals_keonsun.py",
+		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail/email_utils.py",
+		"/C/Users/keons/dev/sogangdjango/src/NewsFeed/apps.py",
+		"/C/Users/keons/dev/sogangdjango/src/Account/models.py",
+		"/C/Users/keons/dev/sogangdjango/src/NewsFeed/models.py",
+		"/C/Users/keons/dev/sogangdjango/src/Auth/TODO.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/email/email_content_password_reset.html",
+		"/C/Users/keons/dev/sogangdjango/src/Auth/admin.py",
+		"/C/Users/keons/dev/sogangdjango/src/Following/migrations/__init__.py",
+		"/C/Users/keons/dev/sogangdjango/src/Profile/models.py",
+		"/C/Users/keons/dev/sogangdjango/src/templates/auth/email/account_activate_subject.txt",
 		"/C/Users/keons/dev/sogangdjango/src/templates/auth/email/register_complete_check_activation_link_email.html",
 		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_reset_phone_verification.html",
-		"/C/Users/keons/dev/sogangdjango/src/Auth/TODO.py",
-		"/C/Users/keons/dev/sogangdjango/src/sogangdjango/settings/base.py",
 		"/C/Users/keons/dev/sogangdjango/src/Auth/utils.py",
-		"/C/Users/keons/dev/sogangdjango/src/Auth/models.py",
-		"/C/Users/keons/dev/sogangdjango/src/Auth/forms.py",
 		"/C/Users/keons/dev/sogangdjango/src/templates/auth/email/password_reset_subject.txt",
-		"/C/Users/keons/dev/sogangdjango/src/Auth/views.py",
 		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_reset_phone_number_send.html",
 		"/C/Users/keons/dev/sogangdjango/src/Dummy/views.py",
-		"/C/Users/keons/dev/sogangdjango/src/sogangdjango/urls.py",
 		"/C/Users/keons/dev/sogangdjango/src/Dummy/urls.py",
 		"/C/Users/keons/dev/sogangdjango/src/templates/dummy/snippet/basenavbar.html",
-		"/C/Users/keons/dev/sogangdjango/src/sogangdjango/settings/locals_base.py",
 		"/C/Users/keons/dev/sogangdjango/src/templates/dummy/home.html",
 		"/C/Users/keons/dev/sogangdjango/src/templates/dummy/base.html",
-		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail/phone_utils.py",
-		"/C/Users/keons/dev/sogangdjango/src/Profile/models.py",
-		"/C/Users/keons/dev/sogangdjango/src/Auth/admin.py",
-		"/C/Users/keons/dev/sogangdjango/src/Account/models.py",
-		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail/fields.py",
 		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_reset_phone.html",
 		"/C/Users/keons/dev/sogangdjango/src/Account/forms.py",
 		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_reset_confirm.html",
-		"/C/Users/keons/dev/sogangdjango/src/templates/auth/email/email_content_password_reset.html",
 		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_reset_email_sent.html",
-		"/C/Users/keons/dev/sogangdjango/src/Account/managers.py",
 		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_reset.html",
 		"/C/Users/keons/dev/sogangdjango/src/Account/admin.py",
 		"/C/Users/keons/dev/sogangdjango/src/templates/auth/email_content_password_reset.html",
 		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail/views.py",
-		"/C/Users/keons/dev/sogangdjango/src/Auth/urls.py",
-		"/C/Users/keons/dev/sogangdjango/src/templates/auth/password_change_done.html",
 		"/C/Users/keons/dev/sogangdjango/src/templates/auth/changepassword.html",
-		"/C/Users/keons/dev/sogangdjango/src/templates/auth/logout.html",
 		"/C/Users/keons/dev/sogangdjango/src/Profile/urls.py",
 		"/C/Users/keons/dev/sogangdjango/src/Profile/migrations/0001_initial.py",
 		"/C/Users/keons/dev/sogangdjango/src/PhoneEmail/utils.py",
@@ -590,8 +684,6 @@
 		"/C/Users/keons/dev/sogangdjango/src/Profile/admin.py",
 		"/C/Users/keons/dev/sogangdjango/src/Profile/fields.py",
 		"/C/Users/keons/dev/sogangdjango/src/templates/registration/register.html",
-		"/C/Users/keons/dev/sogangdjango/src/templates/auth/register.html",
-		"/C/Users/keons/dev/sogangdjango/src/templates/auth/login.html",
 		"/C/Users/keons/dev/sogangdjango/src/Account/TODO.py",
 		"/C/Users/keons/dev/blogworldforgit/src/djangoviews/views.py",
 		"/C/Users/keons/Desktop/forexample.html",
@@ -638,51 +730,19 @@
 		"/C/Users/keons/dev/blogworldforgit/src/blogworld/settings/secret.json",
 		"/C/Users/keons/dev/theorbit/backend/theorbit/plather/settings/development.py",
 		"/C/Users/keons/dev/theorbit/backend/theorbit/plather/settings/base.py",
-		"/C/Users/keons/dev/blogworldforgit/src/secret.json",
-		"/C/Users/keons/dev/theorbit/backend/theorbit/secret.json",
-		"/C/Users/keons/dev/blogworldforgit/src/blogworld/settings/production.py",
-		"/C/Users/keons/dev/blogworldforgit/src/blogworld/settings/__init__.py",
-		"/C/Users/keons/dev/blogworldforgit/blogworld/blogworld/settings.py",
-		"/C/Users/keons/dev/blogworldforgit/blogworld/Account/models.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/ch3_1_6_imports.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/ch3_1_5_classinheritance2.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/ch3_1_6_classinheritance3.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/ch3_1_3_classbasics3.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/ch3_1_1_classbasics.py",
-		"/C/Users/keons/dev/blogworldforgit/.gitignore",
-		"/C/Users/keons/dev/blogworldforgit/gitignore.txt",
-		"/C/Users/keons/Downloads/eCommerce-master/README.md",
-		"/C/Users/keons/Downloads/Try-Reactjs-master/README.md",
-		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/README.md",
-		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/ch3_1_4_classinheritance.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/ch3_1_2_classbasics2.py",
-		"/C/Users/keons/Downloads/ch3_1_4_classinheritance.py",
-		"/C/Users/keons/AppData/Roaming/Sublime Text 3/Packages/User/aa.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/hh.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture3/example.py",
-		"/C/Users/keons/Desktop/소스코드용 폴더/preprocess.py",
-		"/C/Users/keons/Downloads/preprocess.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/forjleague/preprocess.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture2/ch2_1_2_function_one.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/temp_lecture/pythonclassmaterial/lecture2/ch2_1_1_function_basics.py",
-		"/C/Users/keons/Desktop/lecture3/ch3_1_5_classinheritance2.py",
-		"/C/Users/keons/Desktop/lecture3/ch3_1_4_classinheritance.py",
-		"/C/Users/keons/Desktop/lecture2/ch2_1_1_function_basics.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/forjleague/the_file_to_be_run.py",
-		"/C/Users/keons/Downloads/jleaguefunc_재승수정.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/forjleague/__init__.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/forjleague/jleaguefunc.py",
-		"/C/Users/keons/Desktop/GoogleSnyced/forjleague/jleaguefunc,py"
+		"/C/Users/keons/dev/blogworldforgit/src/secret.json"
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 47.0
 	},
 	"find_in_files":
 	{
 		"height": 168.0,
 		"where_history":
 		[
+			"C:\\Users\\keons\\dev\\sogangdjango\\src",
+			""
 		]
 	},
 	"find_state":
@@ -690,6 +750,66 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"!\n",
+			"user-phone-field",
+			"phone-verification-send-field",
+			"user-phone-field",
+			"error",
+			"code",
+			"in",
+			"incorrect",
+			"user_phone_field",
+			"user_phone",
+			"phone_verification_send_form",
+			"phone_verification_form-contro",
+			"phone_verification_send_form",
+			"form",
+			"email",
+			"login",
+			"already",
+			"phone_",
+			"registration_form",
+			"authentication",
+			"background",
+			"landing",
+			"2.9",
+			"responsive",
+			"open",
+			"auth_phone_verify_code",
+			"Phone verification code with this User phone and Verification code already exists.",
+			"error",
+			"already",
+			"Verification code already exists",
+			"add_error",
+			"Enter your phone number",
+			"password_reset_phone_verification",
+			"password_reset_phone_send",
+			"PasswordResetData",
+			"never_cach",
+			"method_decorator",
+			"login_required",
+			"auth_phone_send_verification_code",
+			"auth_phone_verify_code",
+			"auth_activation_confirm_view",
+			"AuthActivationConfirmView",
+			"phone_utils",
+			"kwargs",
+			"force_bytes",
+			"force_byts",
+			"_random_verification_string",
+			"urlsafe_base64_encode",
+			"send_activation",
+			"uidb64",
+			"INTERNAL_RESET_SESSION_TOKEN",
+			"INTERNAL_RESET_URL_TOKEN",
+			"print",
+			"email_message",
+			"utils",
+			"data",
+			"never_cache()",
+			"AuthAccountActivateView",
+			"password_ch",
+			"password_reset",
 			"AuthAccountActivateView",
 			"EMAIL_RESET_VALIDITY_TIME",
 			"password_reset_phone",
@@ -735,44 +855,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1696,
+						"buffer_size": 1894,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1317,
-								1355
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 22.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/Auth/views.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8556,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8029,
-								8029
+								1358,
+								1330
 							]
 						],
 						"settings":
@@ -782,7 +873,37 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2566.0,
+						"translation.y": 147.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/Auth/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14610,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7757,
+								7757
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2174.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -790,24 +911,86 @@
 				},
 				{
 					"buffer": 2,
-					"file": "src/templates/auth/form_success.html",
+					"file": "src/Auth/api/urls.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 68,
+						"buffer_size": 579,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								45,
-								45
+								560,
+								560
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/Auth/api/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16739,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2639,
+								2639
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 767.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/templates/snippets/widget_tweak_form.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1030,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1030,
+								1030
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -817,20 +1000,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/Auth/models.py",
+					"buffer": 5,
+					"file": "src/Auth/forms.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3015,
+						"buffer_size": 4617,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1425,
-								1425
+								1357,
+								1357
 							]
 						],
 						"settings":
@@ -840,70 +1023,69 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 495.0,
+						"translation.y": 39.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/templates/auth/find_lost_account.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2794,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2028,
+								2028
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 39.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "src/Profile/models.py",
+					"buffer": 7,
+					"file": "src/templates/auth/snippets/widget_tweak_form_for_phone.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 628,
+						"buffer_size": 4275,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								254,
-								254
+								1793,
+								1793
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/Account/models.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1897,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								181,
-								181
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 270.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -990,7 +1172,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 313.0,
+	"side_bar_width": 282.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
