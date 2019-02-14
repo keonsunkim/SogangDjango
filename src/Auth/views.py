@@ -2,6 +2,7 @@ from django.http import JsonResponse
 
 # django basic tools
 from django.contrib.auth import authenticate
+from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
@@ -64,6 +65,7 @@ class AuthLogoutView(auth_views.LogoutView):
 ################################################
 ################################################
 
+
 @sensitive_post_parameters()
 def registration_view(request):
     if request.user.is_authenticated():
@@ -114,6 +116,7 @@ def registration_view(request):
 ################################################
 ################################################
 
+
 def find_lost_account_view(request):
     auth_logout(request)
     if request.method == "GET":
@@ -145,7 +148,7 @@ class AuthPasswordEmailResetView(auth_views.PasswordResetView):
     email_template_name = 'auth/email/email_content_password_reset.html'
     subject_template_name = 'auth/email/password_reset_subject.txt'
     success_url = reverse_lazy('auth:form_successful', kwargs={
-                               'label': 'email_password_reset'})
+                               'label': 'password_reset_email_sent'})
 
 
 class AuthPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
@@ -160,6 +163,7 @@ class AuthPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
 #     Phone Registration Raw CODE
 ################################################
 ################################################
+
 
 @sensitive_post_parameters()
 def auth_phone_verify_code_view(request):
@@ -305,7 +309,7 @@ def auth_form_successful_view(request, label):
             'You have sucessfully registered your account! ',
             'Activate your account with the link we provided to your email!'
         )
-    elif label == 'email_password_reset':
+    elif label == 'password_reset_email_sent':
         success_msg = (
             'We have sent your password reset link to your email!',
             'Reset with the link provided from our email!'

@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
+from django.utils.translation import ugettext_lazy as _
+
 
 # for auth
 from django.contrib.auth import views as auth_views
@@ -75,34 +77,184 @@ def check_phone_exists_api_view(request):
 ################################################
 
 
+@sensitive_post_parameters()
 def auth_phone_send_verification_code_api_view(request):
-    if request.method == "POST" and request.is_ajax():
-        auth_phone_only_form = AuthPhoneOnlyVerificationForm(request.POST)
-        if auth_phone_only_form.is_valid():
-            user_phone = auth_phone_only_form.cleaned_data['user_phone']
-            verification_code = PhoneVerificationCode()._generate_phone_verification_number()
+    # Unallow methods without Post or XHLHttpRequest
+    if request.method != "POST" and not request.is_ajax():
+        return JsonResponse(status=400)
 
-            verification_msg = (
-                'Hello! You have requested for the verification code for the SogangDjango \
-                Project! ',
-                f'Verification code: {verification_code}')
+    auth_phone_only_form = AuthPhoneOnlyVerificationForm(request.POST)
+    if auth_phone_only_form.is_valid():
+        user_phone = auth_phone_only_form.cleaned_data["user_phone"]
 
-            phone_verification_data = PhoneVerificationCode(
-                user_phone=user_phone,
-                verification_code=verification_code)
-            phone_verification_data.save()
-            print("yoe")
-            print(phone_verification_data)
-            data = dict(code_sent=True)
+        # Check if it is required to have phone number registered!
+        if request.POST.dict().get("check_phone_number_exists", None) == "true":
+            phone_exists = User.objects.filter(
+                user_phone__exact=user_phone).exists()
+            if phone_exists == False:
+                phone_exists_msg = _("Phone number is not registered")
+                auth_phone_only_form.add_error("user_phone", phone_exists_msg)
+                data = dict(code_sent=False,
+                            errors=auth_phone_only_form.errors.as_json())
+                return JsonResponse(data, status=200, safe=False)
 
-            phone_message_sender.send_message(
-                to=user_phone, body=''.join(verification_msg))
+        # Generate verification code
+        verification_code = PhoneVerificationCode()._generate_phone_verification_number()
 
-            return JsonResponse(data, status=200)
-        else:
-            data = dict(code_sent=False,
-                        errors=auth_phone_only_form.errors.as_json())
-            return JsonResponse(data, status=200, safe=False)
+        verification_msg = (
+            'Hello! You have requested for the verification code for the SogangDjango \
+            Project! ',
+            f'Verification code: {verification_code}')
+
+        # Save verification code with phone number
+        phone_verification_data = PhoneVerificationCode(
+            user_phone=user_phone,
+            verification_code=verification_code)
+        phone_verification_data.save()
+
+        # The ajax checks for "code_sent" to be true or false
+        # It will display invalid field when false
+        data = dict(code_sent=True)
+        phone_message_sender.send_message(
+            to=user_phone, body=''.join(verification_msg))
+        return JsonResponse(data, status=200)
+    else:
+        data = dict(code_sent=False,
+                    errors=auth_phone_only_form.errors.as_json())
+        return JsonResponse(data, status=200, safe=False)
+
+
+@sensitive_post_parameters()
+def phone_verify_api_view(request):
+    # Unallow methods without Post or XHLHttpRequest
+    if request.method != "POST" and not request.is_ajax():
+        return JsonResponse(status=400)
+
+    auth_phone_verification_form = AuthPhoneVerificationForm(request.POST)
+    if auth_phone_verification_form.is_valid():
+        user_phone = auth_phone_verification_form.cleaned_data[
+            'user_phone']
+        # Check if it is required to have phone number registered!
+        if request.POST.dict().get("check_phone_number_exists", None) == "true":
+            phone_exists = User.objects.filter(
+                user_phone__exact=user_phone).exists()
+            if phone_exists == False:
+                phone_exists_msg = _("Phone number is not registered")
+                auth_phone_only_form.add_error(
+                    "user_phone", phone_exists_msg)
+                data = dict(code_sent=False,
+                            errors=auth_phone_only_form.errors.as_json())
+                return JsonResponse(data, status=200, safe=False)
+
+            verification_code = auth_phone_verification_form.cleaned_data[
+                'verification_code']
+
+            latest_of_user_reset_data = PhoneVerificationCode.objects.filter(
+                user_phone=user_phone).latest('created')
+
+            # Check whether object exists or not before calling class methods
+            if latest_of_user_reset_data:
+                # Check if the verification code is expired or not
+                if not latest_of_user_reset_data.is_not_expired:
+                    auth_phone_verification_form.add_error(
+                        "verification_code", "Your key has expired")
+                    data = dict(
+                        verification_success=False,
+                        errors=auth_phone_verification_form.errors.as_json()
+                    )
+                    return JsonResponse(data, status=200)
+                # Then check whether the verification code matches with the
+                # latest code
+                if not latest_of_user_reset_data.verification_code_matches(verification_code):
+                    auth_phone_verification_form.add_error(
+                        "verification_code", "Incorrect verification code")
+                    data = dict(
+                        verification_success=False,
+                        errors=auth_phone_verification_form.errors.as_json()
+                    )
+                    return JsonResponse(data, status=200)
+                # Then redirect the user to the password change form with token
+                # urls
+                user_object = User.objects.get(user_phone=user_phone)
+                uid = urlsafe_base64_encode(force_bytes(user_object.pk))
+                token = default_token_generator.make_token(user_object)
+                data = dict(redirect=reverse_lazy('auth:password_reset_confirm',
+                                                  kwargs={'uidb64': uid, 'token': token}))
+                return JsonResponse(data, status=302)
+    else:
+        auth_phone_verification_form.add_error(
+            None, _("Invalid phone number or verification code")
+        )
+        data = dict(
+            verification_success=False,
+            errors=auth_phone_verification_form.errors.as_json()
+        )
+        return JsonResponse(data, status=200)
+
+
+################################################
+################################################
+#           Email Password Reset
+################################################
+################################################
+
+
+# from django.contrib.auth views but needs some changing
+
+def email_password_reset_api_view(request,
+                                  template_name='registration/password_reset_form.html',
+                                  email_template_name='registration/password_reset_email.html',
+                                  subject_template_name='registration/password_reset_subject.txt',
+                                  password_reset_form=PasswordResetForm,
+                                  token_generator=default_token_generator,
+                                  post_reset_redirect=None,
+                                  from_email="sogangdjango@noreply.com",
+                                  extra_context=None,
+                                  html_email_template_name=None,
+                                  extra_email_context=None):
+    if request.method != "POST" and not request.method.is_ajax():
+        return JsonResponse(status=400)
+
+    if post_reset_redirect is None:
+        post_reset_redirect = reverse_lazy('auth:form_successful', kwargs={
+                                           "label": "password_reset_email_sent"})
+    else:
+        post_reset_redirect = resolve_url(post_reset_redirect)
+
+    form = password_reset_form(request.POST)
+    if form.is_valid():
+
+        email = form.cleaned_data['email']
+
+        if request.POST.dict().get("check_email_exists", None) == "true":
+            email_exists = User.objects.filter(
+                email__exact=email).exists()
+            if email_exists == False:
+                email_exists_msg = _("Email is not registered")
+                form.add_error(
+                    "email", email_exists_msg)
+                data = dict(email_sent=False,
+                            errors=form.errors.as_json())
+                return JsonResponse(data, status=200, safe=False)
+
+        opts = {
+            'use_https': request.is_secure(),
+            'token_generator': token_generator,
+            'from_email': from_email,
+            'email_template_name': email_template_name,
+            'subject_template_name': subject_template_name,
+            'request': request,
+            'html_email_template_name': html_email_template_name,
+            'extra_email_context': extra_email_context,
+        }
+        form.save(**opts)
+        data = dict(redirct=post_reset_redirect)
+        return JsonResponse(data, status=302)
+
+    else:
+        data = dict(email_sent=False,
+                    errors=form.errors.as_json())
+        JsonResponse(data, status=200, safe=False)
 
 
 ################################################
@@ -110,6 +262,7 @@ def auth_phone_send_verification_code_api_view(request):
 #              Basic Auth
 ################################################
 ################################################
+
 
 class AuthLoginView(auth_views.LoginView):
     template_name = "auth/login.html"
