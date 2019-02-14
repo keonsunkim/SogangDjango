@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import PasswordResetData
+from .models import PhoneVerificationCode
 
-admin.site.register(PasswordResetData)
+admin.site.register(PhoneVerificationCode)

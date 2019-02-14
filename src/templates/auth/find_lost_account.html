@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block bodycontent %}
+
+<div class="text-center mt-3">
+	<h4>Find Your Lost Account</h4>
+</div>
+
+
+<div class="mt-5">
+	<div class="row">
+		<div class="col col-lg-2 col-md-12 col-sm-12"></div>
+		<div class="col col-lg-8 col-md-12 col-sm-12">
+			<div class="row">
+			<div class="col col-lg-6 col-md-12 col-sm-12">
+				<div class="text-center">
+					<h6>Find with Registered Email</h6>
+				</div>
+				<div class="mt-5 pt-5"></div>
+					{% include 'auth/snippets/widget_tweak_form_for_email.html' %}
+			</div>
+			<div class="col col-lg-6 col-md-12 col-sm-12">	
+				<div class="text-center">
+					<h6>Find with Registered Phone Number</h6>
+				</div>
+				<div class="mt-5 pt-5"></div>
+					{% include 'auth/snippets/widget_tweak_form_for_phone.html' %}
+			</div>
+		</div>
+		<div class="col col-lg-2 col-md-12 col-sm-12"></div>	
+	</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+	$(document).ready(() => {
+
+		// get csrftoken
+		function getCookie(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = jQuery.trim(cookies[i]);
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getCookie('csrftoken');
+
+		// js for verification code sending
+		$('#phone-verification-send-form').on('submit', event => {
+			event.preventDefault();
+			$.ajax({
+				type: "POST",
+				url: "{% url 'auth_api:send_phone_verification_code_api' %}",
+				data: {'user_phone': $(".phone-verification-send-field").val(), 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+				dataType: 'json',
+				success: function (data, textStatus) {
+					if (data.code_sent == true) {
+						var $phoneVerifyDiv = $('#phone-verification-div');
+						$('#phone-verification-send-div').addClass("d-none disable");
+						$phoneVerifyDiv.removeClass('d-none');
+						$(".phone-verify-field").val($(".phone-verification-send-field").val())
+					} else {
+						let responseData = $.parseJSON(data.errors);
+						for (name in responseData) {
+							for (var i in responseData[name]) {
+								$(".phone-verification-send-field").addClass("is-invalid");
+								$('#phone-verification-send-form-group-div').append(`<div class="invalid-feedback">` + responseData[name][i].message + `</div>`);
+							}
+						}
+					}
+				},
+				error: function( jqXhr, textStatus, errorThrown ) {
+					console.log(jqXhr);
+				}
+			});
+				
+		});
+
+
+	});
+</script>
+{% endblock %}

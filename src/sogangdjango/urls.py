@@ -18,12 +18,15 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 
+from Home.views import homepage_view
+
 urlpatterns = [
     url(r'^auth/', include('Auth.urls', namespace='auth')),
+    url(r'^api/v1/auth/', include('Auth.api.urls', namespace="auth_api")),
     url(r'^profile/', include('Profile.urls', namespace='profile')),
     url(r'^follow/', include('Following.urls')),
-    url(r'^dummy/', include('Dummy.urls', namespace='dummy')),
     url(r'^admin/', admin.site.urls),
+    url(r'$', homepage_view, name='home'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -33,12 +33,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Home',
     'Account',
     'Auth',
     'Following',
     'Profile',
     'PhoneEmail',
-    'Dummy',
+    'NewsFeed',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -106,6 +108,7 @@ USE_TZ = True
 
 
 # Extra
+PASSWORD_RESET_TIMEOUT_DAYS = 2
 USER_ACTIVATION_EMAIL_VALIDITY_TIME = ('days', 30)
 PASSWORD_RESET_EMAIL_VALIDITY_TIME = ('days', 7)
 PASSWORD_RESET_PHONE_VALIDITY_TIME = ('minutes', 3)

@@ -26,8 +26,8 @@ from django.contrib.auth.forms import (
 from PhoneEmail.email_utils import send_activation_email
 from PhoneEmail.phone_utils import PhoneMessageSender
 
-from .models import PhoneVerificationCode, EmailVerificationCode
-from .forms import (
+from ..models import PhoneVerificationCode, EmailVerificationCode
+from ..forms import (
     UserRegistrationForm, AuthPhoneVerificationForm,
     AuthPhoneOnlyVerificationForm
 )
@@ -44,10 +44,72 @@ phone_message_sender = PhoneMessageSender()
 
 ################################################
 ################################################
-#           Basic Auth : Login Logout
+#         Check Email and Phone exists
 ################################################
 ################################################
 
+
+def check_email_exists_api_view(request):
+    if request.is_ajax():
+        email_to_check = request.method.GET.get('email', None)
+    if email_to_check:
+        data = dict(email_exists=User.objects.filter(
+            email__iexact=email_to_check)
+        )
+        return JsonResponse(data)
+
+
+def check_phone_exists_api_view(request):
+    if request.is_ajax():
+        user_phone_to_check = request.method.GET.get('user_phone', None)
+    if user_phone_to_check:
+        data = dict(user_phone_exists=User.objects.filter(
+            user_phone__iexact=user_phone_to_check)
+        )
+        return JsonResponse(data)
+
+################################################
+################################################
+#         Send verification code
+################################################
+################################################
+
+
+def auth_phone_send_verification_code_api_view(request):
+    if request.method == "POST" and request.is_ajax():
+        auth_phone_only_form = AuthPhoneOnlyVerificationForm(request.POST)
+        if auth_phone_only_form.is_valid():
+            user_phone = auth_phone_only_form.cleaned_data['user_phone']
+            verification_code = PhoneVerificationCode()._generate_phone_verification_number()
+
+            verification_msg = (
+                'Hello! You have requested for the verification code for the SogangDjango \
+                Project! ',
+                f'Verification code: {verification_code}')
+
+            phone_verification_data = PhoneVerificationCode(
+                user_phone=user_phone,
+                verification_code=verification_code)
+            phone_verification_data.save()
+            print("yoe")
+            print(phone_verification_data)
+            data = dict(code_sent=True)
+
+            phone_message_sender.send_message(
+                to=user_phone, body=''.join(verification_msg))
+
+            return JsonResponse(data, status=200)
+        else:
+            data = dict(code_sent=False,
+                        errors=auth_phone_only_form.errors.as_json())
+            return JsonResponse(data, status=200, safe=False)
+
+
+################################################
+################################################
+#              Basic Auth
+################################################
+################################################
 
 class AuthLoginView(auth_views.LoginView):
     template_name = "auth/login.html"
@@ -119,11 +181,9 @@ def find_lost_account_view(request):
     if request.method == "GET":
         password_reset_form = PasswordResetForm()
         phone_verification_send_form = AuthPhoneOnlyVerificationForm()
-        phone_verification_form = AuthPhoneVerificationForm()
         context = dict(
             password_reset_form=password_reset_form,
-            phone_verification_send_form=phone_verification_send_form,
-            phone_verification_form=phone_verification_form)
+            phone_verification_send_form=phone_verification_send_form)
         return render(request, 'auth/find_lost_account.html', context)
 
 
@@ -137,7 +197,7 @@ def find_lost_account_view(request):
 class AuthPasswordChangeView(auth_views.PasswordChangeView):
     template_name = "auth/changepassword.html"
     success_url = reverse_lazy('auth:form_successful', kwargs={
-                               'label': 'password_change_complete'})
+        'label': 'password_change_complete'})
 
 
 class AuthPasswordEmailResetView(auth_views.PasswordResetView):
@@ -145,19 +205,19 @@ class AuthPasswordEmailResetView(auth_views.PasswordResetView):
     email_template_name = 'auth/email/email_content_password_reset.html'
     subject_template_name = 'auth/email/password_reset_subject.txt'
     success_url = reverse_lazy('auth:form_successful', kwargs={
-                               'label': 'email_password_reset'})
+        'label': 'email_password_reset'})
 
 
 class AuthPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
     template_name = 'auth/password_reset_confirm.html'
     token_generator = default_token_generator
     success_url = reverse_lazy('auth:form_successful', kwargs={
-                               'label': 'password_change_complete'})
+        'label': 'password_change_complete'})
 
 
 ################################################
 ################################################
-#     Phone Registration Raw CODE
+#              Phone Registration
 ################################################
 ################################################
 
@@ -166,15 +226,14 @@ def auth_phone_verify_code_view(request):
     if request.method == "POST":
         auth_phone_verification_form = AuthPhoneVerificationForm(request.POST)
         if auth_phone_verification_form.is_valid():
-            user_phone = \
-                auth_phone_verification_form.cleaned_data['user_phone']
+            user_phone = auth_phone_verification_form.cleaned_data[
+                'user_phone']
 
-            verification_code = \
-                auth_phone_verification_form.cleaned_data['verification_code']
+            verification_code = auth_phone_verification_form.cleaned_data[
+                'verification_code']
 
-            latest_of_user_reset_data = \
-                PhoneVerificationCode.objects.filter(
-                    user_phone=user_phone).latest('created')
+            latest_of_user_reset_data = PhoneVerificationCode.objects.filter(
+                user_phone=user_phone).latest('created')
 
             if latest_of_user_reset_data:
                 if not latest_of_user_reset_data.is_not_expired:

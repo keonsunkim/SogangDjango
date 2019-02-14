@@ -18,3 +18,4 @@ STATICFILES_DIRS = [
 DEBUG = True
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+PHONE_BACKEND = "Local"

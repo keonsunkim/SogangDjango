@@ -1,0 +1,25 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+  <a class="navbar-brand" href="{% url 'home' %}">SogangDjango</a>
+    <form class="form-inline my-2 my-lg-0" action="search" method="get">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <ul class="navbar-nav ml-auto">
+      {% if request.user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'auth:logout' %}">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'auth:register' %}">Register</a>
+      </li>
+        {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'auth:login' %}">Login</a>
+      </li>
+      {% endif %}
+      </li>
+    </ul>
+</div>
+</nav>

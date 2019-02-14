@@ -22,8 +22,7 @@ class FormPhoneField(forms.CharField):
         super(FormPhoneField, self).__init__(*args, **kwargs)
 
     def validate(self, value):
-        print("this should come first")
-        """Check if value consists only of valid emails."""
+        """Check if value consists only of valid phone."""
         # Use the parent's handling of required fields, etc.
         _validate_phone_number(value)
 
@@ -32,7 +31,7 @@ class FormPhoneField(forms.CharField):
             phone_number = phonenumbers.parse(value)
             return _phonenumber_obj_to_e164(phone_number)
         except:
-            raise forms.ValidationError("Phonenumber incorrect")
+            raise forms.ValidationError("Invalid Phone Number")
 
 
 class PhoneNumberField(models.CharField):
@@ -58,7 +57,6 @@ class PhoneNumberField(models.CharField):
         return value
 
     def get_prep_value(self, value):
-        print(value)
         if not value:
             return "null"
         if value == "null":

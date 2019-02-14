@@ -12,10 +12,19 @@ class UserManager(BaseUserManager):
         if not email:
             raise ValueError('Users must have an email address')
 
+        slug_name_for_url = random_string_generator(size=10)
+
+        # this is meant to prevent the one in a million chance of the same slug
+        # being created!
+        if self.model().filter(slug_name_for_url__exact=slug_name_for_url).exists():
+            slug_name_for_url = slug_name_for_url \
+                + random_string_generator(size=3)
+
         user = self.model(
             email=self.normalize_email(email),
-            slug_name_for_url=random_string_generator(),
+            slug_name_for_url=slug_name_for_url,
         )
+
         user.user_type = user_type
 
         user.set_password(password)

@@ -1,55 +1,50 @@
+import phonenumbers
+
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.forms import (
-    AuthenticationForm, UsernameField, UserCreationForm
+    AuthenticationForm, UsernameField, UserCreationForm,
 )
+from django.core.exceptions import ValidationError
 
 from django.contrib.auth import (
     get_user_model, authenticate, password_validation
 )
 
 from PhoneEmail.fields import FormPhoneField
-
-from .models import PasswordResetData
+from PhoneEmail.validators import non_phone_number_element_regex_finder
+from PhoneEmail.phone_utils import _phonenumber_obj_to_e164
 
 User = get_user_model()
 
 
-class AuthResetPhoneOnlyForm(forms.ModelForm):
-    user_phone = FormPhoneField(max_length=16)
+class AuthPhoneOnlyVerificationForm(forms.Form):
+    user_phone = FormPhoneField(max_length=20)
 
-    class Meta:
-        model = PasswordResetData
-        fields = ('user_phone', )
+    def __init__(self, *args, **kwargs):
+        super(AuthPhoneOnlyVerificationForm, self).__init__(*args, **kwargs)
+        self.fields['user_phone'].label = "Phone Number"
 
-    def clean_phone_number(self):
-        phone_number = self.cleaned_data['phone_number']
-        if UserProfile.objects.filter(user_phone=phone_number).exists():
-            return phone_number
-        else:
-            raise forms.ValidationError(
-                _('phone number does not exist!'),
-                code="phone_number_does_not_exist",
-            )
+    def clean_user_phone(self):
+        user_phone = self.cleaned_data['user_phone']
+        user_phone = user_phone.replace("-", "")
+        msg = "Phone number not valid"
+        if not non_phone_number_element_regex_finder.match(user_phone):
+            raise ValidationError(_(msg))
+        user_phone = str(user_phone)
+        phone_number = phonenumbers.parse(user_phone, )
+        if not phonenumbers.is_valid_number(phone_number):
+            raise ValidationError(_(msg))
+        return _phonenumber_obj_to_e164(phone_number)
 
 
-class AuthResetPhoneVerificationForm(forms.ModelForm):
-    user_phone = FormPhoneField(max_length=16)
+class AuthPhoneVerificationForm(AuthPhoneOnlyVerificationForm):
+    # directly inherit the phone only form!
     verification_code = forms.CharField(max_length=50)
 
-    class Meta:
-        model = PasswordResetData
-        fields = ('user_phone', 'verification_code')
-
-    def clean_phone_number(self):
-        phone_number = self.cleaned_data['phone_number']
-        if UserProfile.objects.filter(user_phone=phone_number).exists():
-            return phone_number
-        else:
-            raise forms.ValidationError(
-                _('phone number does not exist!'),
-                code="phone_number_does_not_exist",
-            )
+    def __init__(self, *args, **kwargs):
+        super(AuthPhoneVerificationForm, self).__init__(*args, **kwargs)
+        self.fields['verification_code'].label = "Verification Number"
 
 
 class UserAuthenticationForm(AuthenticationForm):
