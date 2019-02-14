@@ -202,9 +202,8 @@ def phone_verify_api_view(request):
 # from django.contrib.auth views but needs some changing
 
 def email_password_reset_api_view(request,
-                                  template_name='registration/password_reset_form.html',
-                                  email_template_name='registration/password_reset_email.html',
-                                  subject_template_name='registration/password_reset_subject.txt',
+                                  email_template_name='auth/email/email_content_password_reset.html',
+                                  subject_template_name='auth/email/password_reset_subject.txt',
                                   password_reset_form=PasswordResetForm,
                                   token_generator=default_token_generator,
                                   post_reset_redirect=None,
@@ -248,7 +247,7 @@ def email_password_reset_api_view(request,
             'extra_email_context': extra_email_context,
         }
         form.save(**opts)
-        data = dict(redirct=post_reset_redirect)
+        data = dict(redirect=post_reset_redirect)
         return JsonResponse(data, status=302)
 
     else:

@@ -40,7 +40,6 @@
 
 	<script>
 		var emailPasswordResetAPI = "{% url 'auth_api:email_password_reset_api' %}"
-		console.log(emailPasswordResetAPI)
 		var sendPhoneVerificationCodeAPI = "{% url 'auth_api:send_phone_verification_code_api' %}"
 		var phoneVerifyAPI = "{% url 'auth_api:phone_verify_api' %}"
 		var csrfToken = "{{ csrf_token }}" 
