@@ -15,6 +15,9 @@
 		text-height: 160%;
 		
 	}
+	.container{
+		margin-left: 2px;
+	}
 
 	.author a{
 		float:  right;

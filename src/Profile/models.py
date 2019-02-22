@@ -1,17 +1,21 @@
 from django.db import models
-from django.contrib.auth import get_user_model
+	
+from django.conf import settings
 
-from .fields import PhoneNumberField
+from PhoneEmail.fields import PhoneNumberField
 
+User = settings.AUTH_USER_MODEL
 
-from .CONSTANTS import *
-
-
-User = get_user_model()
 
 class UserProfile(models.Model):
-	owner = models.OneToOneField(User, null=False,
-		on_delete=models.CASCADE)
+    user_id = models.OneToOneField(
+        User, on_delete=models.CASCADE)
+    user_picture = models.ImageField(
+        upload_to='profile_pics', blank=True, null=True)
+    user_description = models.CharField(max_length=500)
 
-	profile_pics = models.ImageField(upload_to="profile_pic/")
-	phone_number = PhoneNumberField(allowed_countries=ALLOWED_COUNTRIES, max_length=16)
+
+class GroupProfile(models.Model):
+    user_id = models.OneToOneField(User, on_delete=models.CASCADE)
+    user_picture = models.ImageField(upload_to='profile_pics')
+    user_description = models.CharField(max_length=500)

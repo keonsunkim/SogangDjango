@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class PostConfig(AppConfig):
-    name = 'Post'
+    name = 'Profile'

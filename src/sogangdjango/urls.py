@@ -17,11 +17,17 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from Home.views import homepage_view
 urlpatterns = [
-    #url(r'^home/',example_view),
+    url(r'^auth/', include('Auth.urls', namespace='auth')),
+    url(r'^api/v1/auth/', include('Auth.api.urls', namespace="auth_api")),
+    url(r'^profile/', include('Profile.urls', namespace='profile')),
+    url(r'^follow/', include('Following.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^posts/', include('Post.urls', namespace='posts')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'$', homepage_view, name='home'),
 
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL,
+                      document_root=settings.MEDIA_ROOT)

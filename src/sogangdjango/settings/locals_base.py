@@ -18,3 +18,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media-root')
 MEDIA_URL = '/media-root/'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+PHONE_BACKEND = "Local"

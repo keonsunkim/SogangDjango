@@ -1,2 +1,0 @@
-
-ALLOWED_COUNTRIES = {'82': 'kr'}

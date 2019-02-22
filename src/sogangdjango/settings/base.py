@@ -24,8 +24,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'Account.User'
-
 #Application definition
 
 INSTALLED_APPS = [
@@ -37,10 +35,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Post',
     'Account',
+    'Auth',
     'Following',
     'ckeditor',
     'ckeditor_uploader',
     'django.forms',
+    'Profile',
+    'PhoneEmail',
+    'NewsFeed',
+    'widget_tweaks'
 ]
 
 
@@ -110,5 +113,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Extra
+PASSWORD_RESET_TIMEOUT_DAYS = 2
+USER_ACTIVATION_EMAIL_VALIDITY_TIME = ('days', 30)
+PASSWORD_RESET_EMAIL_VALIDITY_TIME = ('days', 7)
+PASSWORD_RESET_PHONE_VALIDITY_TIME = ('minutes', 3)
 
 
+# Auth
+AUTH_USER_MODEL = 'Account.User'
+LOGIN_URL = "auth/login"

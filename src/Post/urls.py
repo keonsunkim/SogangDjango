@@ -16,6 +16,5 @@ urlpatterns = [
 		views.tag_related_post_list_view, name ="tag_related_post_list"),
 	url(r'^author_post_list/(?P<author_slugname>[0-9a-zA-Z]+)/$'
 		,views.author_post_list_view, name="author_post_list"),
-	
 	]
 

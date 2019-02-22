@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}SogangDjango SNS Landing Page{% endblock %}
+
+
+{% block bodycontent %}
+<div class="container">
+	<div class="row main-header">
+		<!-- <div class="col-lg-1 col-md-12 col-sm-12 col-12"></div>
+		<div class="col-lg-10 col-md-12 col-sm-12 col-12"> -->
+		<div class="main-header">
+			<img src= "{% static 'img/row-background2.png' %}" alt="programming">
+		</div>
+		<!-- </div> -->
+		<!-- <div class="col-lg-1 col-md-12 col-sm-12 col-12"></div> -->
+	</div>
+</div>
+
+<div class="container">
+	<div class="row projects">
+		<div class="col-5">
+			<div class="row no1"></div>
+			<div class="row no2"></div>
+			<div class="row no3"></div>
+		</div>
+		<div class="col-3">
+			<div class="row no4"></div>
+			<div class="row no5"></div>
+		</div>
+		<div class="col-4">
+			<div class="row no6"></div>
+			<div class="row no7"></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+{% endblock %} 

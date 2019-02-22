@@ -54,6 +54,7 @@ def post_list_view(request):
 		context = {'posts':posts}
 		return render(request,"post/list.html",context)
 
+
 def post_detail_view(request, post_id):
 		if request.method == "POST":
 			return HttpResponse(status=400)
@@ -166,14 +167,12 @@ def tag_related_post_list_view(request,tag_slug):
 			return HttpResponse(status=400)
 		else:
 			tag_model = get_object_or_404(Tag, slug=tag_slug)
-			print(tag_model)
-			related = FilterTagRelation.objects.filter(filter_tag_id=tag_model.id)
-			print(related)
-			published = related.values('general_post_id')
-			print(published)
-			related_post = GeneralPost.objects.filter(id=published)		
-			print(related_post)
-			paginator = Paginator(related_post, 6)
+			related = FilterTagRelation.objects.filter(filter_tag_id=tag_model.id).values_list('general_post_id')
+			generalpost = GeneralPost.objects.filter(published=True).values_list('id')
+			generalpost = generalpost.intersection(related)
+			generalpost = GeneralPost.objects.filter(id__in=generalpost)
+			paginator = Paginator(generalpost, 6)
+			# print(paginator)
 			page = request.GET.get('page')
 			try:
 				related_published_post = paginator.page(page)
@@ -181,10 +180,11 @@ def tag_related_post_list_view(request,tag_slug):
 				related_published_post = paginator.page(1)
 			except EmptyPage:
 				related_published_post = paginator.page(paginator.num_pages)
-			context = { 
-				'related_post': related_post,
-				'related_published_post' : related_published_post
-			}
+			context = {
+						'generalpost':generalpost,
+						'related': related,
+						'related_published_post' : related_published_post
+					}
 			return render (request,"post/tag_related_post_list.html", context)
 
 User = get_user_model()

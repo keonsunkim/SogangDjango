@@ -35,4 +35,3 @@ class GeneralPostDeleteForm(forms.ModelForm):
 	class Meta:
 		model = GeneralPost
 		fields = ()
-
