@@ -14,6 +14,6 @@ def homepage_view(request):
             registration_form=registration_form,
             login_form=login_form
         )
-        return render(request, 'home/landing.html', context)
+        return render(request, 'home/about.html', context)
     else:
         return render(request, 'home/home.html', dict())

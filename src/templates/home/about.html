@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block title %}SogangDjango SNS Landing Page{% endblock %}
-
+{% block css %}
+<link href="{% static 'css/about.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
 
 {% block bodycontent %}
 <div class="container">
