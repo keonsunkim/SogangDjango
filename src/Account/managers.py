@@ -16,7 +16,7 @@ class UserManager(BaseUserManager):
 
         # this is meant to prevent the one in a million chance of the same slug
         # being created!
-        if self.model().filter(slug_name_for_url__exact=slug_name_for_url).exists():
+        if self.filter(slug_name_for_url__exact=slug_name_for_url).exists():
             slug_name_for_url = slug_name_for_url \
                 + random_string_generator(size=3)
     
@@ -26,9 +26,8 @@ class UserManager(BaseUserManager):
             slug_name_for_url=slug_name_for_url,
         )
         user.user_type = user_type
-
         user.set_password(password)
-        user.is_active = False
+        user.is_active = True
         user.save(using=self._db)
         return user
 

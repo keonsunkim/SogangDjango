@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
 from Auth.forms import (
     UserRegistrationForm, AuthPhoneVerificationForm,
@@ -7,13 +8,13 @@ from Auth.forms import (
 
 
 def homepage_view(request):
-    if not request.user.is_authenticated():
-        registration_form = UserRegistrationForm()
-        login_form = UserAuthenticationForm()
-        context = dict(
-            registration_form=registration_form,
-            login_form=login_form
-        )
-        return render(request, 'home/about.html', context)
-    else:
-        return render(request, 'home/home.html', dict())
+    registration_form = UserRegistrationForm()
+    login_form = UserAuthenticationForm()
+    context = dict(
+        registration_form=registration_form,
+        login_form=login_form
+    )
+    return render(request, 'home/home.html', context)
+
+class about_view(TemplateView):
+    template_name = "home/about.html"

@@ -4,6 +4,8 @@ from . import views
 
 from django.urls import reverse
 
+app_name = 'posts'
+
 urlpatterns = [
 	url(r'^user_post_list/$',views.user_post_list_view, name = "user_post_list"),
 	url(r'^list/$',views.post_list_view, name = "list"),

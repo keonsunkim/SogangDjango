@@ -55,6 +55,7 @@ class AuthLoginView(auth_views.LoginView):
     redirect_authenticated_user = True
 
 
+
 class AuthLogoutView(auth_views.LogoutView):
     template_name = "auth/logout.html"
 

@@ -5,6 +5,7 @@ from .views import (
     auth_phone_send_verification_code_api_view, phone_verify_api_view,
     email_password_reset_api_view
 )
+app_name = 'auth_api'
 
 urlpatterns = [
     # Check Email and Phone

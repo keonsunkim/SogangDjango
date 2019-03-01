@@ -8,6 +8,7 @@ from .views import (
     auth_form_successful_view, auth_form_unsuccessful_view,
     auth_activation_confirm_view, find_lost_account_view
 )
+app_name = 'auth'
 
 urlpatterns = [
     # Basic auth operations

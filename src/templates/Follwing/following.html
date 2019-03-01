@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}SogangDjango SNS project{% endblock %}
+{% block bodycontent %}
+<div class="container bg-light content-area mt-0">
+<div class="container mb-3 p-0">
+<h1>User <<span class="text-success">{{page_owner.email}}</span>> is following: </h1>
+</div>
+
+{% for follower in request_follows %}	
+    <div class="card m-2">
+  	    <div class="card-body d-flex justify-content-between">
+            <div>
+    	       <h5 class="card-title"><p>{{follower.following.email}}</p></h5>
+               <p class="card-text"><small class="text-muted">
+                Following Since: {{follower.following_since.date}}</small></p>
+            </div>    
+                <form action="/follow/do_follow/{{follower.following.id}}" method="post">
+                {% csrf_token %}
+                <input class="btn btn-secondary" type="submit" value="Unfollow">
+                <input type="hidden" name="next" value="{{ request.path }}">
+                </form>
+        </div>
+    </div>
+{% endfor %}
+
+{% for follower in request_not_follows %}    
+    <div class="card m-2">
+        <div class="card-body d-flex justify-content-between">
+            <div>
+            <h5 class="card-title"><p>{{follower.following.email}}</p></h5>
+            <p class="card-text"><small class="text-muted">
+            Following Since: {{follower.following_since.date}}</small></p>
+            </div>    
+                <form action="/follow/do_follow/{{follower.following.id}}" method="post">
+                {% csrf_token %}
+                <input class="btn btn-primary" type="submit" value="Follow">
+                <input type="hidden" name="next" value="{{ request.path }}">
+                </form>
+        </div>
+    </div>
+{% endfor %}
+{% for message in messages %}
+    <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}

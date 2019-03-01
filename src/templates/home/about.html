@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block title %}SogangDjango SNS Landing Page{% endblock %}
+{% block title %}SogangDjango SNS project{% endblock %}
 {% block css %}
 <link href="{% static 'css/about.css' %}" rel="stylesheet" type="text/css" />
 {% endblock %}
@@ -32,7 +32,7 @@
 			</div>
 
 			<div class="go-tos">
-				<a href="{% url 'home' %}" type="button" class="btn btn-lg btn-block"> Go Check Out Our Project! </a>
+				<a href="{% url 'posts:list' %}" type="button" class="btn btn-lg btn-block"> Go Check Out Our Project! </a>
 
 			</div>
 
