@@ -1,0 +1,23 @@
+.post-title {
+	margin-top: 30px;
+	font-size: 50px;
+	font-weight: 700;
+}
+
+.author a{
+		margin-top: 20px;
+		font-family: 'Nanum Gothic', sans-serif;
+		color: black;
+		font-size: 20px;
+	}
+.post-details {
+	margin-top: 20px;
+}
+.post-created {
+	color: #A9A9A9;
+
+}
+
+.post-content {
+	font-family: 'Nanum Gothic', sans-serif;
+}

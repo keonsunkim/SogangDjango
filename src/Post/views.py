@@ -40,7 +40,6 @@ def user_post_list_view(request):
 	else:
 		raise Http403
 
-
 def post_list_view(request):
 		post_list = GeneralPost.objects.filter(published=True)
 		paginator = Paginator(post_list, 6)
@@ -52,7 +51,7 @@ def post_list_view(request):
 		except EmptyPage:
 			posts = paginator.page(paginator.num_pages)
 		context = {'posts':posts}
-		return render(request,"post/list.html",context)
+		return render(request,"post/list2.html",context)
 
 
 def post_detail_view(request, post_id):
@@ -67,7 +66,7 @@ def post_detail_view(request, post_id):
 				"post" : post,
 				"tags": tags	
 			}			
-		return render (request,"post/detail.html", context) 
+		return render (request,"post/detail2.html", context) 
 	
 @login_required
 def post_create_view(request):

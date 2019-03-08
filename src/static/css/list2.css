@@ -1,0 +1,45 @@
+<style>
+.heading {
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.streamItem.postPreview {
+	margin-bottom: 48px;
+	font-family: 'Nanum Gothic', sans-serif;
+
+}
+
+.post-title {
+	font-size: 24px;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.post-content {
+	font-weight: 400;
+	font-size: 15px;
+	color: #808080;
+	display: block;
+	overflow: hidden; 
+	text-overflow: ellipsis;
+	max-height: 44px;
+}
+
+.post-details {
+	margin-top: 10px;
+	color: #808080
+}
+.post-author {
+	font-weight: 400;
+	font-size: 17px;
+	color: #A9A9A9;
+	text-decoration: none;
+}
+.post-created {
+	font-weight: 400;
+	font-size: 13px;
+	color: #808080;
+}
+</style>

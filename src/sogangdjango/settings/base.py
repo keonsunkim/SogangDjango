@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'Profile',
     'PhoneEmail',
     'NewsFeed',
-    'widget_tweaks'
+    'widget_tweaks',
+    'django.contrib.humanize'
 ]
 
 

@@ -1,18 +1,15 @@
 
 {% extends 'base.html' %}
-
-{% block title %}SogangDjango SNS Landing Page{% endblock %}
-
-{% block bodycontent %}
-
+{% load staticfiles %}
 {% load static %}
 
-<head> 
-<link rel="stylesheet" type="text/css" href="{% static 'css/list.css' %}">
-</head>
+{% block title %}SogangDjango list{% endblock %}
 
+{% block css %}
+<link href="{% static 'css/list.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
 
-<body>
+{% block bodycontent %}
   <div class="row">
       {% for post in posts %}
     <div class="container col-6 mb-4 ml-0 p-1">

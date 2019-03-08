@@ -1,10 +1,67 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+{% load static %}
+{% load humanize %}
 
-{% block title %}SogangDjango SNS Landing Page{% endblock %}
 
+{% block title %}SogangDjango list{% endblock %}
+
+{% block css %}
+<link href="{% static 'css/list2.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
 
 {% block bodycontent %}
+<div class="container col-12">
+	<div class="container col-2"></div>
+	<div class="container col-8">
+		<div class="streamItem heading">
+			<div class="heading">
+				<header class="heading-center">
+					<!-- <span class="heading-title">We wrote...</span> -->
+				</header>
+			</div>
+		</div>
+		<hr/>
+		<!-- <div class="row"> -->
+			{% for post in posts %}
+			<!-- <div class="col-6"> -->
+				<div class="streamItem postPreview">
+					<div class="postPreview">
+						<article class="post-preview">
+							<div class="post-title">
+								<a class="post-title-link" href="{% url 'posts:detail' post_id=post.id %}">
+									{{ post.title }}
+								</a>
+							</div>
+							<div class="post-content">
+								{{ post.content|striptags }}
+							</div>
+						</article>
+						<div class="post-details">
+							<div class="details-center">
+								<div class="post-author">
+									<a href="{% url 'posts:author_post_list' author_slugname=post.author.slug_name_for_url %}">
+									{{ post.author.slug_name_for_url}}</a>
+								</div>
+								<div class="post-created">
+									{{ post.created|naturaltime }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<!-- </div> -->
+			{% endfor %}
+		<!-- </div> -->
+	</div>
+	<div class="container col-2"></div>
+</div>
+{% endblock %}
 
-
-
-{% endblock %} 
+{% block scripts %}
+<script>
+	$('.post-content').html(function(i,h){
+    return h.replace(/&nbsp;/g,'');
+});
+</script>
+{% endblock %}
